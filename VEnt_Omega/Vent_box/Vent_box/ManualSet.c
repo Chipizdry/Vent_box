@@ -9,7 +9,8 @@
 #include "LCD.h"
 #include "ADConverter.h"
 #include "ManualSet.h"
-
+int mcount;
+int mn_tm;
 void ManualSet()
 {
  NORMAL0;
@@ -21,17 +22,23 @@ void ManualSet()
 	 
 	 lcd_gotoxy(0, 0);
 	 lcd_puts("PyАЅo№ PEЈҐM    "); //Ручной режим 
+	
 	 if((preority==0)&&(technic==0))
 	 {  
 		
-		 pr();
-		// volts();
+		// pr();
+		 volts();
+		
+		//MenuStatus();
 	 }
+	 
+	 
 	 if((preority==1)&&(technic>1))
 	 {
 		 lcd_gotoxy(0, 0);
 		 lcd_puts("PyАЅo№ PEЈҐM    ");// Ручной режим 
 		 
+		
 		 lcd_gotoxy(0,1);
 		 lcd_puts("SIGNAL LINES ERR");
 	 }
@@ -51,6 +58,7 @@ void ManualSet()
 	 arm=1;
 	 _delay_ms(100);
 	 milis=0; 
+	
 	 J0;
  }
  if((arm==1)  &&  (PINB & 0b0010000)&&(working==0))// Кнопка отпущена , вентилятор запущен в ручном режиме
@@ -62,10 +70,7 @@ void ManualSet()
 	 if((preority==1)&&(technic>1))
 	 {
 		 lcd_gotoxy(0, 0);
-		 
-		 lcd_puts("   Manual START    ");
-		
-		 
+		 lcd_puts("   Manual START    ");	 
 	 }
 	 
 	 
@@ -88,7 +93,7 @@ void ManualSet()
 	 J0;
  }
  
- if((arm==1)  && (PINB & 0b0010000) &&(working==1) )//
+ if((arm==1)&&(PINB & 0b0010000)&&(working==1) )//
  
  {
 	 working=0;
@@ -98,8 +103,8 @@ void ManualSet()
 		 lcd_gotoxy(0, 0);
 		 lcd_puts("PyАЅo№ PEЈҐM    ");  // lcd_puts("  MANUAL  SET   ");
 		
-		// volts();
-		//if((timing-time_loop)>90000) { pr();time_loop=timing;} 
+		volts();
+		//MenuStatus();
 	 }
 	 
 	 
@@ -120,8 +125,13 @@ void ManualSet()
  if((arm==0)&&(working==1))// Кнопка отпущена , вентилятор запущен в ручном режиме ВЫВОД ИНФОРМАЦИИ НА ДИСПЛЕЙ
  
  {
-	 int mcount=interval-milis;
-	 if ( (preority==0)&&(technic==0)&&(interval > milis) )
+	// mn_tm=(timing-millis)/7800;
+	// mcount=interval-mn_tm;
+	 
+      int mcount=interval-milis;
+	  if ( (preority==0)&&(technic==0)&&(interval > milis) )
+	 
+	// if ( (preority==0)&&(technic==0)&&(interval > mn_tm) )
 	 
 	 {
 		  regim_fall=0;
@@ -131,10 +141,13 @@ void ManualSet()
 		 lcd_puts("ЎoїoіЅocїД...");
 		 
 		 lcd_gotoxy(13, 1);
-		 lcd_num_to_str(mcount/10, 2); // Выводим данные времени на LCD
-		 lcd_gotoxy(15, 1);
-		 lcd_num_to_str(mcount%100, 1);
+		  lcd_num_to_str(mcount, 3); // Выводим данные времени на LCD
+		// lcd_num_to_str(mcount/10, 2); // Выводим данные времени на LCD
+		// lcd_gotoxy(15, 1);
+		// lcd_num_to_str(mcount%100, 1);
 	 }
+	 
+	// if ( (preority==0)&&(technic==0)&&(interval<=mn_tm) )
 	 if ( (preority==0)&&(technic==0)&&(interval <= milis) )
 	 {
 		 lcd_gotoxy(0,1);

@@ -1,13 +1,19 @@
-
+/*
+ * AutoTemp.c
+ *
+ * Created: 22.02.2021 20:39:46
+ *  Author: Red
+ */ 
 #include "Inputs.h"
 #include "Registr.h"
 #include "LCD.h"
 #include "ADConverter.h"
 
-void AutoSet()
+void AutoTemp()
 {
-NORMAL1;	
-MenuStatus();
+	NORMAL1;
+	
+ StatusBarTemp();
 if( (preority==0)&&(external==0)&&((technic==0)||(technic==1)) )
 {
 	technic=0;
@@ -141,15 +147,13 @@ if((preority==1)&&(technic>1))
 	
 	lcd_puts("ABTO   PEЈҐM    ");
 	
-	//lcd_gotoxy(0,1);
-	//lcd_puts("SIGNAL LINES ERR");
-	//	lcd_puts("AіapёЗ »ёЅёё PS!");  // Авария линии PS
-	
 	RN0;
 	milis=0;
 	autorun=0;
 }
 
-_delay_ms(10);
-
+_delay_ms(10);	
+	
+	
 }
+	

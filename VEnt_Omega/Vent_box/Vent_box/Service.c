@@ -16,10 +16,10 @@ void Service () {
 	 _delay_ms(50);
 	 lcd_gotoxy(0, 1); // Выводим строки на LCD
 	 lcd_puts("                ");
-	 if(service>8)
+	 if(service>7)
 	 {
 		 regim=3;
-		 service=1;
+		 service=0;
 	 }
 	 EEPROM_write(0x00, service);
 	 J0;

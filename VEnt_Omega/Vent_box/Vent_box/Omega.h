@@ -38,7 +38,7 @@ int detect[145];
 
 
 void Omega_slave();
-
+void protocol();
 
 
 #endif /* OMEGA(SLAVE)_H_ */

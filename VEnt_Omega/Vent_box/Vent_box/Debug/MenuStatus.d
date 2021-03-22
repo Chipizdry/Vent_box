@@ -1,4 +1,5 @@
-ManualSet.d ManualSet.o: .././ManualSet.c .././Inputs.h .././main.h \
+MenuStatus.d MenuStatus.o: .././MenuStatus.c .././MenuStatus.h \
+ .././main.h \
  d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -20,11 +21,10 @@ ManualSet.d ManualSet.o: .././ManualSet.c .././Inputs.h .././main.h \
  d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
  .././Registr.h .././ADConverter.h .././LCD.h .././registr.h \
- .././EepromDATA.h .././Voltmeter.h .././Led_driver.h .././Omega.h \
- .././DHT.h .././MenuStatus.h .././Manual.h .././AutoTemp.h \
- .././ServiceMenu.h .././ManualSet.h
+ .././EepromDATA.h .././Voltmeter.h .././Inputs.h .././Led_driver.h \
+ .././Omega.h .././DHT.h .././Manual.h .././AutoTemp.h .././ServiceMenu.h
 
-.././Inputs.h:
+.././MenuStatus.h:
 
 .././main.h:
 
@@ -80,18 +80,16 @@ d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.
 
 .././Voltmeter.h:
 
+.././Inputs.h:
+
 .././Led_driver.h:
 
 .././Omega.h:
 
 .././DHT.h:
 
-.././MenuStatus.h:
-
 .././Manual.h:
 
 .././AutoTemp.h:
 
 .././ServiceMenu.h:
-
-.././ManualSet.h:

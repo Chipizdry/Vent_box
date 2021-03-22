@@ -21,13 +21,11 @@ unsigned char working=0;    //работа двигателя ручной режим
 unsigned char autorun=0;    //работа двигателя авто режим
 unsigned char technic=0;
 int temperatur=0;
-unsigned int tt=0; 
-int d=0;
 int k=5;
 int past;
 int past2;
 int timing;
-int mn_time;
+
 char read_enable = 0;
 
 
@@ -46,7 +44,9 @@ char read_enable = 0;
   }
 
 int main(void)
-{
+{  
+	
+	J1;
 	
 	ADCSRA|=(1<<ADEN);// разрешаем работу АЦП
 	ADMUX &= (0 << REFS1);
@@ -86,9 +86,9 @@ int main(void)
 	
 	
 	
-	J1;
+	
 	_delay_ms(200);
-	J0;
+	
 	lcd_init(); // Инициализация дисплея
 	
 	write_to_lcd(0x01, 0); // Очищаем дисплей
@@ -99,9 +99,8 @@ int main(void)
 	
 	meter();
 	volts();
-	J1;
-	PIND|=0b01000000;
-	//_delay_ms(1000);
+	
+	PIND|=0b01000000;//Подсветка дисплея 
 	volts();
 	
 	arm =0; 
@@ -135,7 +134,7 @@ int main(void)
  if(delta_F>42){delta_F=41;}
  adress=EEPROM_read(0x10);
  if(adress>128){adress=0;}
- service=8;
+ service=0;
  fire=read_adc(0); //Чтение состояния входа ПОЖАР
  preasure=read_adc(1); // Состояние входа ВЫХОД НА РЕЖИМ
 
@@ -147,9 +146,13 @@ sei();
 j=0;
 J0;
     while (1) 
-  {  current_adc();
+	
+  {
+	current_adc();
 	Alarm_line();
-	PS500_line();
+    PS500_line();
+	#if(VENT_SYSTEM==1)
+	current_adc();
 	meter();
 	status();
 	Service();
@@ -163,25 +166,53 @@ J0;
 		pwr=0;
 	}
 	
-    if(  ((voltage+delta_U)>=100)|| (delta_U>40) )
-    {
+	if(  ((voltage+delta_U)>=100)|| (delta_U>40) )
+	{
 		if(  ((faza+delta_F)>=100)|| (delta_F>40) )
 		{
-	   pwr=1;	
-	   RUN1;
+			pwr=1;
+			RUN1;
 		}
-     }
+	}
+
+	#endif
+	
+	
+	
+	#if(VENT_SYSTEM==2)
+	meter();
+	ServiceMenu();
+	status();
+	if (regim!=2){mode=1;}
+	if (regim==2){mode=0;}
+	if((voltage+delta_U)<100)
+	{
+		RUN0;
+		
+		pwr=0;
+	}
+	
+	if(((voltage+delta_U)>=100)||(delta_U>40))
+	{
+			pwr=1;
+			RUN1;
+	}
+	
+
+	#endif
+	
+	
 
 		 //Рабочие режимы   
 //================================================================================
-		if (!(PINB & 0b001000)  && flag==0 && service==8) // кнопка нажата
+		if (!(PINB & 0b001000)  && flag==0 && service==0) // кнопка нажата
 		{
 			
 			J1;
 			regim++;
 			flag=1;
 			arm =0;
-			
+			d=0;
 			_delay_ms(30);
 			working=0;
 			RN0;
@@ -195,7 +226,7 @@ J0;
 			J1;
 		}
 		
-		if( (PINB & 0b0001000)   &&  flag==1 && service==8) // кнопка отпущена
+		if( (PINB & 0b0001000)   &&  flag==1 && service==0) // кнопка отпущена
 		{
 			arm =0;
 			flag=0;
@@ -203,97 +234,47 @@ J0;
 		}
 						
 //-----------------------------------------------------------------------
-		if(regim==1 && service==8)     //первый режим (ручной старт)		
+		if(regim==1 && service==0)     //первый режим (ручной старт)		
 		{   
+			#if(VENT_SYSTEM==1)
 			ManualSet();
+			#endif	
+			#if(VENT_SYSTEM==2)
+			Manual();
+			#endif
 		}
 //--------------------------------------------------------------------------------		
-		if(regim==2 && service==8)//второй режим (АВТОМАТИЧЕСКИЙ старт)		
+		if(regim==2 && service==0)//второй режим (АВТОМАТИЧЕСКИЙ старт)		
 		{	
+			#if(VENT_SYSTEM==1)
 			AutoSet();	
+			#endif
+			#if(VENT_SYSTEM==2)
+			AutoTemp();
+			#endif
 		}
 //---------------------------------------------------------------------------------------		
-		if(regim==3  && service==8 )//третий  режим (Запуск отключён)
+		if(regim==3  && service==0 )//третий  режим (Запуск отключён)
 		
 		{  	
 			lcd_gotoxy(0, 0);
 			lcd_puts("¤aѕycє OTK§°«ўH     "); //Запуск отключён
-		
-				
-			lcd_gotoxy(0,1);   
-			 tt=0;
-			for(int m=d;m<7;m++)		
-			{  
-				//m=m+d;
-				if(stat[m]==1)
-				{
-					switch (m)
-					{
-					  case 0 :
-					  lcd_puts("!CёґЅa» ЁOЈAP_! ");
-					  tt=1;
-					  break;
-					  
-					  case 1 :
-					  lcd_puts("AіapёЗ ѕёїaЅёЗ  ");
-					  tt=1;
-					  break;
-					   
-					  case 2 :
-					  lcd_puts("AіapёЗ іxoгa AL ");
-					  tt=1;
-					  break;
-					  
-					  case 3 :
-					  lcd_puts("AіapёЗ іxoгa PS ");
-					  tt=1;
-					  break;
-					  
-					  case 4 :
-					  lcd_puts("AіapёЗ 380B  (3)");
-					  tt=1;
-					  break;
-					  
-					  case 5 :
-					  lcd_puts("AіapёЗ дa·ёpoієё");
-					  tt=1;
-					  break;
-					  
-					  case 6 :
-					  lcd_puts("Peіepc дa· 380B ");
-					  tt=1;
-					  break;
-					 // default: volts();
-				    }
-				}
-				
-			}
-		if (tt==0) {volts();d=0;}	
-							 
-				if( (!(PINB & 0b0010000)) && flag2==0) { flag2=1;}
-				
-				if( (PINB & 0b0010000) && flag2==1 ) 
-				{
-					J1;
-					flag2=0;
-					d=d+1;
-					if(d>7) d=0;
-				    _delay_ms(20);
-					 J0;
-				}
-				
-				 
-				 
-				
-				
-				
-			NORMAL0;
+			#if(VENT_SYSTEM==1)
+			MenuStatus();	
+			#endif
 			
+			#if(VENT_SYSTEM==2)
+			StatusBarTemp();
+			#endif
+			NORMAL0;	
 		}
-		 		
+//----------------------------------------------------------------------------------------		 		
 	J0;
-	if (timing>150000000)
-	{
+	if (timing>1500000000)
+	{   
+		lcd_init(); // Инициализация дисплея
+		
+		write_to_lcd(0x01, 0); // Очищаем дисплей
 		timing=0;
 		past=0;
 		past2=0;

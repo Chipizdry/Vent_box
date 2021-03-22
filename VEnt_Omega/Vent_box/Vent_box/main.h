@@ -5,15 +5,13 @@
 #define MAIN_H_
 
 #define F_CPU              16000000UL
-//#define ONE_WIRE_PORT      PORTD
-//#define ONE_WIRE_DDR       DDRD
-//#define ONE_WIRE_PIN       PIND
-//#define ONE_WIRE_DQ        7
 
 #define DHT_PORT        PORTD
 #define DHT_DDR         DDRD
 #define DHT_PIN         PIND
 #define DHT_BIT         7
+
+#define VENT_SYSTEM     2 //2
 
 #include <avr/io.h>
 #include <util/delay.h>
@@ -31,21 +29,29 @@
 #include "Voltmeter.h"
 #include "Inputs.h"
 #include "Led_driver.h"
-#include "ManualSet.h"
-#include "Service.h"
-#include "AutoSet.h"
 #include "Omega.h"
 #include "DHT.h"
+#include "MenuStatus.h"
+#if(VENT_SYSTEM==1) 
+#include "ManualSet.h"
+#include "AutoSet.h"
+#include "Service.h"
+#endif
 
-
+#if(VENT_SYSTEM==2)
+#include "Manual.h"
+#include "AutoTemp.h"
+#include "ServiceMenu.h"
+#endif
 
 float hd;
 float tm;
 unsigned char hum;
 uint8_t data[5];
 unsigned char buff [16];  //буфер дисплея
-
+int mn_time;
 int milis;
+int millis;
 int interval;
 int delta_U;
 int delta_F;
@@ -54,7 +60,7 @@ unsigned char arm;       //пуск ручной
 int fire;
 int pwr;  //Питание НОРМА 
 unsigned char preority;
-int preasure;
+int preasure;//состояние входа PS
 unsigned char technic;
 unsigned char working;
 unsigned char autorun;
@@ -65,9 +71,10 @@ int j;
 int d;
 unsigned char regim;      //режим работы ручной-авто
 unsigned char service;
-int stat[10];
+int stat[10];//Массив статуса аварий
+int norm[10];// Массив статуса НОРМА
+int test;//авария датчика DHT
 unsigned char search;
-unsigned char test;
 unsigned char al;
 unsigned char regim_fall;//невыход на режим 
 unsigned char faza_fall;
@@ -75,10 +82,11 @@ unsigned char faza_fall_1;
 unsigned char faza_fall_2;
 unsigned char revers;
 unsigned char time_loop;
-unsigned char receivemode;
+unsigned char receivemode;// состояние аварии DHT датчика
 unsigned char mode;
-unsigned char external;
-int tmp;
+unsigned int tt; //вспомогательная переменная для динамического меню
+unsigned char external;//внешняя тревога
+int tmp; //температура в INT 
 int relay;
 
 #endif /* MAIN_H_ */

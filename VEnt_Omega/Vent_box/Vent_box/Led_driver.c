@@ -5,6 +5,9 @@
  *  Author: Red
  */ 
 #include "Led_driver.h"
+
+#if(VENT_SYSTEM==1) //Для систем ВД/ПД
+
 void meter()
 {
 	lvl_1=0;
@@ -266,7 +269,7 @@ void status()
 	else {stat[9]=0;}	
 		
     if(delta_F>40){stat[5]=0;} //игнор аварии фазировки 
-	
+	if(delta_U>40){stat[6]=0;} //игнор Реверса фаз 
 for(int i=1; i<10; i++)
   {
 	  al=al+stat[i];
@@ -276,4 +279,91 @@ for(int i=1; i<10; i++)
         if(al>0) D1;	
 }
 	
+#endif
+
+#if(VENT_SYSTEM==2) //Для систем ОВ
+void meter()
+{
 	
+	lvl_3=0;
+	volts_level=0;
+	al=0;
+	measure=measure+1;
+	
+	w_1 =(w_curr -512)/1.414213*1.16;
+
+	if( (w_1<(225-k)) || (w_1>(225+k)) )
+	{
+		
+		lvl_3=0;
+		if((timing-past2)<=7500)
+		{
+			RUN0;
+		}
+		
+		if((timing-past2)>7500)
+		{
+			RUN1;
+		}
+		
+	}
+
+	else
+	{
+		lvl_3=1;
+		volts_level=1;
+		counter=counter+1;
+		RUN1;	
+	}
+
+    volts_level=1;
+	voltage=counter*100/measure;
+	
+	if(measure==100)
+	{
+		measure=0;
+		counter=0;//??????????????????????????????????
+		
+	}
+	
+	
+	if((timing-past2)>=15000)
+	{
+		past2=timing;
+	}
+	
+}
+
+void status()
+{
+	if(preority==2) {stat[0]=1;}    //Сигнал ПОЖАР
+	else {stat[0]=0;}
+	if(pwr==0) {stat[1]=1;}         //Авария питания
+	else {stat[1]=0;}
+	if(preority==1) {stat[2]=1;}    //Авария входа ПОЖАР
+	else {stat[2]=0;}
+	if(technic==2)  {stat[3]=1;}    //Авария входа датчика давления
+	else {stat[3]=0;}
+	if(volts_level==0) {stat[4]=1;} //Авария уровня напряжения
+	else {stat[4]=0;}
+	if(faza_fall==1){stat[5]=1;}    //Авария очерёдности фаз(фазировки)
+	else {stat[5]=0;}
+	if(revers==2) {stat[6]=1;}      //Реверс фаз
+	else {stat[6]=0;}
+	if(regim_fall==1) {stat[8]=1;} 	//Невыход на режим
+	else {stat[8]=0;}
+	if(technic>2) {stat[9]=1;}   	//Ложная сработка датчика PS
+	else {stat[9]=0;}
+	
+	if(delta_F>40){stat[5]=0;} //игнор аварии фазировки
+	if(delta_U>40){stat[6]=0;} //игнор Реверса фаз
+	for(int i=1; i<10; i++)
+	{
+		al=al+stat[i];
+		
+	}
+	if(al==0) D0;
+	if(al>0) D1;
+}
+
+#endif

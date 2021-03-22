@@ -6,6 +6,8 @@ ADConverter.c
 
 AutoSet.c
 
+AutoTemp.c
+
 DHT.c
 
 EepromDATA.c
@@ -18,13 +20,19 @@ Led_driver.c
 
 main.c
 
+Manual.c
+
 ManualSet.c
+
+MenuStatus.c
 
 Omega.c
 
 Registr.c
 
 Service.c
+
+ServiceMenu.c
 
 Voltmeter.c
 

@@ -1,4 +1,4 @@
-ManualSet.d ManualSet.o: .././ManualSet.c .././Inputs.h .././main.h \
+AutoTemp.d AutoTemp.o: .././AutoTemp.c .././Inputs.h .././main.h \
  d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -22,7 +22,7 @@ ManualSet.d ManualSet.o: .././ManualSet.c .././Inputs.h .././main.h \
  .././Registr.h .././ADConverter.h .././LCD.h .././registr.h \
  .././EepromDATA.h .././Voltmeter.h .././Led_driver.h .././Omega.h \
  .././DHT.h .././MenuStatus.h .././Manual.h .././AutoTemp.h \
- .././ServiceMenu.h .././ManualSet.h
+ .././ServiceMenu.h
 
 .././Inputs.h:
 
@@ -93,5 +93,3 @@ d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.
 .././AutoTemp.h:
 
 .././ServiceMenu.h:
-
-.././ManualSet.h:
