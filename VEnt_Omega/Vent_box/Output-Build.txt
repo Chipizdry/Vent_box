@@ -1,0 +1,15 @@
+﻿------ Build started: Project: Vent_box, Configuration: Debug AVR ------
+Build started.
+Project "Vent_box.cppproj" (default targets):
+Target "PreBuildEvent" skipped, due to false condition; ('$(PreBuildEvent)'!='') was evaluated as (''!='').
+Target "CoreBuild" in file "D:\Atmel\7.0\Vs\Compiler.targets" from project "D:\Atmel\Новая папка\Vent_box\Vent_box\Vent_box\Vent_box.cppproj" (target "Build" depends on it):
+	Task "RunCompilerTask"
+		Shell Utils Path D:\Atmel\7.0\shellUtils
+		D:\Atmel\7.0\shellUtils\make.exe all --jobs 2 --output-sync 
+		make: *** No rule to make target '.././OneWire.c', needed by 'OneWire.o'.  Stop.
+	Done executing task "RunCompilerTask" -- FAILED.
+Done building target "CoreBuild" in project "Vent_box.cppproj" -- FAILED.
+Done building project "Vent_box.cppproj" -- FAILED.
+
+Build FAILED.
+========== Build: 0 succeeded or up-to-date, 1 failed, 0 skipped ==========
