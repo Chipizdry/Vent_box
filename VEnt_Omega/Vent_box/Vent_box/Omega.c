@@ -27,7 +27,7 @@
 		 if(adress_t==0){adres_call=0;}
 	 }
 
-	 if((adress_t==adress)&&(tct>=8)) protocol();
+	 if((adress_t==adress)&&(tct>=8)) {protocol();}
 	 
 	   
 	 bit_flag=1;
@@ -86,6 +86,16 @@
 		 
 		if(tct>=13)
 		{ 
+			
+			if(tct==22){  PORTB |= (1 <<PB1); PORTC|= (1 <<PC5);}                  // Импульс синхронизации
+			if(tct==31){  PORTB |= (1 <<PB1); PORTC|= (1 <<PC5);}                  // Импульс синхронизации
+			if(tct==40){  PORTB |= (1 <<PB1); PORTC|= (1 <<PC5);}                  // Импульс синхронизации
+			if(tct==49){  PORTB |= (1 <<PB1); PORTC|= (1 <<PC5);}                  // Импульс синхронизации
+			if(tct==58){  PORTB |= (1 <<PB1); PORTC|= (1 <<PC5);}                  // Импульс синхронизации
+			if(tct==67){  PORTB |= (1 <<PB1); PORTC|= (1 <<PC5);}                  // Импульс синхронизации
+			if(tct==76){  PORTB |= (1 <<PB1); PORTC|= (1 <<PC5);}                  // Импульс синхронизации
+				
+				
 		  switch(directive)
 		   {
 			   
@@ -93,6 +103,15 @@
 		   if(tct==9) {  PORTB|= (1 <<PB1); PORTC|= (1 <<PC5);}                 //OWR в активном состоянии при запросе от ППКП
 		   if(tct==13){  PORTB|= (1 <<PB1); PORTC|= (1 <<PC5);}                  //OWR в активном состоянии при запросе от программатора/ППКП   
 		   if((tct==14)&&((stat[0]==1)||(external==2)))   {  PORTB|= (1 <<PB1); PORTC|= (1 <<PC5);}   //СОСТОЯНИЕ ТРЕВОГИ
+			   
+			   if(tct==22){  PORTB |= (1 <<PB1); PORTC|= (1 <<PC5);}                  // Импульс синхронизации
+			   if(tct==31){  PORTB |= (1 <<PB1); PORTC|= (1 <<PC5);}                  // Импульс синхронизации
+			   if(tct==40){  PORTB |= (1 <<PB1); PORTC|= (1 <<PC5);}                  // Импульс синхронизации
+			   if(tct==49){  PORTB |= (1 <<PB1); PORTC|= (1 <<PC5);}                  // Импульс синхронизации
+			   if(tct==58){  PORTB |= (1 <<PB1); PORTC|= (1 <<PC5);}                  // Импульс синхронизации
+			   if(tct==67){  PORTB |= (1 <<PB1); PORTC|= (1 <<PC5);}                  // Импульс синхронизации
+			   if(tct==76){  PORTB |= (1 <<PB1); PORTC|= (1 <<PC5);}                  // Импульс синхронизации
+			   
 		   break;
 		   
 		   case 2 :
