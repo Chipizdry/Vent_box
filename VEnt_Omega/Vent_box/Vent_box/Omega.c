@@ -183,7 +183,7 @@
 		   if(tct==46)
 		   {
 			   if((detect[35]==1)&&(detect[42]==1)) {J1;}
-			   if((detect[36]==1)&&(detect[43]==1)) {J0;}
+			   if((detect[36]==1)&&(detect[43]==1)) {J0;external=0;}
 			   if((detect[38]==1)&&(detect[45]==1)) {external=2;}
 			   if((detect[37]==1)&&(detect[44]==1)) {external=0;}
 		   }
