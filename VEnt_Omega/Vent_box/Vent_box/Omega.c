@@ -140,6 +140,16 @@
 				 if(temp_ID==0){  PORTB &=~ (1 <<PB1);}
 			    }  
 				
+				 if((tct>=31)&&(tct<32))  //Активация выхода -тревога
+				 {
+					 temp_ID|=((1)&(0b1));
+					 if(temp_ID==1){  PORTB |= (1 <<PB1); PORTC|= (1 <<PC5);}
+					 if(temp_ID==0){  PORTB &=~(1 <<PB1);}
+				 }
+				
+				
+				
+				
 		   if((tct>=34)&&(tct<36))  //ручной режим (НЕ АВТО)
 			    {
 				 temp_ID|=((mode)&(0b1));
