@@ -239,7 +239,7 @@ void ServiceMenu () {
 			lcd_gotoxy(0, 0); // Выводим строки на LCD
 			lcd_puts("Ёopoґ cpaІoїєё ");//Порог сработки 
 			lcd_gotoxy(0, 1); // Выводим строки на LCD
-			lcd_puts("T(max)-C     ");//датчика температуры
+			lcd_puts("T(max)-C      ");//датчика температуры
 			
 			lcd_gotoxy(14, 1);
 			lcd_num_to_str(delta_T/10, 1); // Выводим данные времени на LCD
@@ -255,7 +255,7 @@ void ServiceMenu () {
 			
 		}
 		
-		
+	/////////////////////////////////////////////////////////////////////////////////////////	
 		if ((!(PINB & 0b001000))&&(flag2==0) )//кнопка выбора значения нажата
 		{
 			J1;
@@ -277,7 +277,29 @@ void ServiceMenu () {
 			_delay_ms(10);
 			J0;
 		}
-		
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
+		if ((!(PINB & 0b010000))&&(flag3==0) )//кнопка выбора значения нажата
+		{
+			J1;
+			delta_T=delta_T-1;
+			if(delta_T<-10)
+			{
+				delta_T=0;
+			}
+
+			flag3=1;
+			EEPROM_write(0x11,delta_T);
+			_delay_ms(20);
+			J0;
+		}
+		if ((PINB & 0b010000)&&(flag3==1) )
+		{
+			J1;
+			flag3=0;
+			_delay_ms(10);
+			J0;
+		}
+				
 	}
 	
 	if(service==6)
@@ -285,24 +307,24 @@ void ServiceMenu () {
 	{
 		
 		delta_F=EEPROM_read(0x09);
-		if(delta_F<=40)
+		if(delta_H<=99)
 		{
 			lcd_gotoxy(0, 0); // Выводим строки на LCD
-			lcd_puts("аoѕycїёјГ№      ");//Допустимый
+			lcd_puts("Maєcёјa»ДЅaЗ    ");//Допустимая
 			lcd_gotoxy(0, 1); // Выводим строки на LCD
-			lcd_puts("cгіёґ дa·   % ");//сдвиг фаз
+			lcd_puts("і»a¶ЅocїД    %");//влажность 
 			
 			lcd_gotoxy(14, 1);
-			lcd_num_to_str(delta_F/10, 1); // Выводим данные времени на LCD
+			lcd_num_to_str(delta_H/10, 1); // Выводим данные времени на LCD
 			lcd_gotoxy(15, 1);
-			lcd_num_to_str(delta_F%100, 1);
+			lcd_num_to_str(delta_H%100, 1);
 		}
-		if(delta_F>40)
+		if(delta_H>99)
 		{
 			lcd_gotoxy(0, 0); // Выводим строки на LCD
 			lcd_puts("KoЅїpo»Д        ");//Контроль
 			lcd_gotoxy(0, 1); // Выводим строки на LCD
-			lcd_puts("cгіёґa дa· OTK§ ");//сдвига фаз ОТКЛ
+			lcd_puts("і»a¶Ѕocїё   OTK§");//влажности ОТКЛ
 			
 		}
 		
@@ -310,14 +332,14 @@ void ServiceMenu () {
 		if ((!(PINB & 0b001000))&&(flag2==0) )//кнопка выбора значения нажата
 		{
 			J1;
-			delta_F=delta_F+2;
-			if(delta_F>42)
+			delta_H=delta_H+2;
+			if(delta_H>100)
 			{
-				delta_F=0;
+				delta_H=0;
 			}
 
 			flag2=1;
-			EEPROM_write(0x09,delta_F);
+			EEPROM_write(0x12,delta_H);
 			_delay_ms(20);
 			J0;
 		}
@@ -328,8 +350,39 @@ void ServiceMenu () {
 			_delay_ms(10);
 			J0;
 		}
+		
+		if ((!(PINB & 0b010000))&&(flag3==0) )//кнопка выбора значения нажата
+		{
+			J1;
+			delta_H=delta_H-1;
+			if(delta_H<0)
+			{
+				delta_H=100;
+			}
+
+			flag3=1;
+			EEPROM_write(0x12,delta_H);
+			_delay_ms(20);
+			J0;
+		}
+		if ((PINB & 0b010000)&&(flag3==1) )
+		{
+			J1;
+			flag3=0;
+			_delay_ms(10);
+			J0;
+		}
+		
+		
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	
+	
+	
+	
+	
+	
 	if(service==7)
 	
 	{

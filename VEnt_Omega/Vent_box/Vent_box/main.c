@@ -139,7 +139,7 @@ int main(void)
  delta_T=EEPROM_read(0x11);
  if(delta_T>62){delta_T=61;}
  delta_H=EEPROM_read(0x12);
- 
+ if(delta_H>100){delta_T=100;}
  service=0;
  fire=read_adc(0); //Чтение состояния входа ПОЖАР
  preasure=read_adc(1); // Состояние входа ВЫХОД НА РЕЖИМ
