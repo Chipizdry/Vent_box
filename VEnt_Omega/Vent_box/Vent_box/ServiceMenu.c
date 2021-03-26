@@ -233,25 +233,25 @@ void ServiceMenu () {
 	if(service==5)
 	
 	{
-		delta_U=EEPROM_read(0x08);
-		if(delta_U<=40)
+		delta_T=EEPROM_read(0x11);
+		if((delta_T<=60)&&(delta_T>=-10))
 		{
 			lcd_gotoxy(0, 0); // Выводим строки на LCD
-			lcd_puts("аoѕycїёјГ№      ");//Допустимый
+			lcd_puts("Ёopoґ cpaІoїєё ");//Порог сработки 
 			lcd_gotoxy(0, 1); // Выводим строки на LCD
-			lcd_puts("ѕepeєoc дa· %");//Перекос фаз
+			lcd_puts("T(max)-C     ");//датчика температуры
 			
 			lcd_gotoxy(14, 1);
-			lcd_num_to_str(delta_U/10, 1); // Выводим данные времени на LCD
+			lcd_num_to_str(delta_T/10, 1); // Выводим данные времени на LCD
 			lcd_gotoxy(15, 1);
-			lcd_num_to_str(delta_U%100, 1);
+			lcd_num_to_str(delta_T%100, 1);
 		}
-		if(delta_U>40)
+		if((delta_T>60)||(delta_T<-10))
 		{
 			lcd_gotoxy(0, 0); // Выводим строки на LCD
 			lcd_puts("KoЅїpo»Д        ");//Контроль
 			lcd_gotoxy(0, 1); // Выводим строки на LCD
-			lcd_puts("ѕepeєoca дa· OTK");//перекоса фаз откл
+			lcd_puts("їeјѕ-pГ     OTK§");//температурного режима отключён 
 			
 		}
 		
@@ -259,21 +259,21 @@ void ServiceMenu () {
 		if ((!(PINB & 0b001000))&&(flag2==0) )//кнопка выбора значения нажата
 		{
 			J1;
-			delta_U=delta_U+2;
-			if(delta_U>42)
+			delta_T=delta_T+2;
+			if(delta_T>62)
 			{
-				delta_U=0;
+				delta_T=0;
 			}
 
 			flag2=1;
-			EEPROM_write(0x08,delta_U);
+			EEPROM_write(0x11,delta_T);
 			_delay_ms(20);
 			J0;
 		}
 		if ((PINB & 0b001000)&&(flag2==1) )
 		{
-			flag2=0;
 			J1;
+			flag2=0;
 			_delay_ms(10);
 			J0;
 		}

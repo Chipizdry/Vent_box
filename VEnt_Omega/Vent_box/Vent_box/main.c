@@ -112,6 +112,8 @@ int main(void)
 	flag3=0;
 	delta_U=0;
 	delta_F=0;
+	delta_T=0;
+	delta_H=0;
 	pwr=0;
 	timer_U=0;
 	test=0;
@@ -134,6 +136,10 @@ int main(void)
  if(delta_F>42){delta_F=41;}
  adress=EEPROM_read(0x10);
  if(adress>128){adress=0;}
+ delta_T=EEPROM_read(0x11);
+ if(delta_T>62){delta_T=61;}
+ delta_H=EEPROM_read(0x12);
+ 
  service=0;
  fire=read_adc(0); //Чтение состояния входа ПОЖАР
  preasure=read_adc(1); // Состояние входа ВЫХОД НА РЕЖИМ
