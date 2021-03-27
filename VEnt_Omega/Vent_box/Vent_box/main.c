@@ -115,6 +115,7 @@ int main(void)
 	delta_T=0;
 	delta_H=0;
 	pwr=0;
+	timer_M=0;
 	timer_U=0;
 	test=0;
 	faza_fall=0;

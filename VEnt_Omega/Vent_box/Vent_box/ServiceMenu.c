@@ -10,9 +10,9 @@
 #include "Registr.h"
 #include "LCD.h"
 #include "ADConverter.h"
-
+int menu=0;
 void ServiceMenu () {
-
+    
 	// Сервисный режим
 	if ((PINB & 0b0100000)  && flag1==0 && regim==3) //Кнопка нажата
 	{
@@ -22,7 +22,7 @@ void ServiceMenu () {
 		_delay_ms(50);
 		lcd_gotoxy(0, 1); // Выводим строки на LCD
 		lcd_puts("                ");
-		if(service>7)
+		if(service>9)
 		{
 			regim=3;
 			service=0;
@@ -69,7 +69,7 @@ void ServiceMenu () {
 			J0;
 		}
 	}
-	
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 	if(service==2)
 	
 	{
@@ -110,7 +110,7 @@ void ServiceMenu () {
 		}
 		
 	}
-	
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 	if(service==3)
 	
 	{
@@ -170,6 +170,7 @@ void ServiceMenu () {
 		
 		
 	}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 	if(service==4)
 	
 	{
@@ -229,7 +230,7 @@ void ServiceMenu () {
 		
 		
 	}
-	
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 	if(service==5)
 	
 	{
@@ -245,6 +246,8 @@ void ServiceMenu () {
 			lcd_num_to_str(delta_T/10, 1); // Выводим данные времени на LCD
 			lcd_gotoxy(15, 1);
 			lcd_num_to_str(delta_T%100, 1);
+			
+			
 		}
 		if((delta_T>60)||(delta_T<-10))
 		{
@@ -259,13 +262,26 @@ void ServiceMenu () {
 		if ((!(PINB & 0b001000))&&(flag2==0) )//кнопка выбора значения нажата
 		{
 			J1;
+			flag2=1;
+		    menu =milis-timer_M;
+			if((menu>1)&&(!(PINB & 0b001000)))
+			{
+				delta_T=delta_T+2;
+				timer_M=milis;	
+				flag2=0;
+				lcd_gotoxy(10, 1);////
+				lcd_num_to_str(menu%100,1);
+				lcd_gotoxy(12, 1);////
+				lcd_num_to_str(menu/10,2);
+				
+			}
+			
 			delta_T=delta_T+2;
 			if(delta_T>62)
 			{
 				delta_T=0;
 			}
 
-			flag2=1;
 			EEPROM_write(0x11,delta_T);
 			_delay_ms(20);
 			J0;
@@ -273,6 +289,7 @@ void ServiceMenu () {
 		if ((PINB & 0b001000)&&(flag2==1) )
 		{
 			J1;
+			timer_M=milis;
 			flag2=0;
 			_delay_ms(10);
 			J0;
@@ -301,7 +318,7 @@ void ServiceMenu () {
 		}
 				
 	}
-	
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 	if(service==6)
 	
 	{
@@ -376,14 +393,157 @@ void ServiceMenu () {
 		
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
-	
-	
-	
-	
-	
-	
 	if(service==7)
+	
+	{
+		
+		delta_F=EEPROM_read(0x09);
+		if(delta_H<=99)
+		{
+			lcd_gotoxy(0, 0); // Выводим строки на LCD
+			lcd_puts("Maєcёјa»ДЅaЗ    ");//Допустимая
+			lcd_gotoxy(0, 1); // Выводим строки на LCD
+			lcd_puts("і»a¶ЅocїД    %");//влажность
+			
+			lcd_gotoxy(14, 1);
+			lcd_num_to_str(delta_H/10, 1); // Выводим данные времени на LCD
+			lcd_gotoxy(15, 1);
+			lcd_num_to_str(delta_H%100, 1);
+		}
+		if(delta_H>99)
+		{
+			lcd_gotoxy(0, 0); // Выводим строки на LCD
+			lcd_puts("KoЅїpo»Д        ");//Контроль
+			lcd_gotoxy(0, 1); // Выводим строки на LCD
+			lcd_puts("і»a¶Ѕocїё   OTK§");//влажности ОТКЛ
+			
+		}
+		
+		
+		if ((!(PINB & 0b001000))&&(flag2==0) )//кнопка выбора значения нажата
+		{
+			J1;
+			delta_H=delta_H+2;
+			if(delta_H>100)
+			{
+				delta_H=0;
+			}
+
+			flag2=1;
+			EEPROM_write(0x12,delta_H);
+			_delay_ms(20);
+			J0;
+		}
+		if ((PINB & 0b001000)&&(flag2==1) )
+		{
+			flag2=0;
+			J1;
+			_delay_ms(10);
+			J0;
+		}
+		
+		if ((!(PINB & 0b010000))&&(flag3==0) )//кнопка выбора значения нажата
+		{
+			J1;
+			delta_H=delta_H-1;
+			if(delta_H<0)
+			{
+				delta_H=100;
+			}
+
+			flag3=1;
+			EEPROM_write(0x12,delta_H);
+			_delay_ms(20);
+			J0;
+		}
+		if ((PINB & 0b010000)&&(flag3==1) )
+		{
+			J1;
+			flag3=0;
+			_delay_ms(10);
+			J0;
+		}
+		
+		
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	if(service==8)
+	
+	{
+		
+		delta_F=EEPROM_read(0x09);
+		if(delta_H<=99)
+		{
+			lcd_gotoxy(0, 0); // Выводим строки на LCD
+			lcd_puts("Maєcёјa»ДЅaЗ    ");//Допустимая
+			lcd_gotoxy(0, 1); // Выводим строки на LCD
+			lcd_puts("і»a¶ЅocїД    %");//влажность
+			
+			lcd_gotoxy(14, 1);
+			lcd_num_to_str(delta_H/10, 1); // Выводим данные времени на LCD
+			lcd_gotoxy(15, 1);
+			lcd_num_to_str(delta_H%100, 1);
+		}
+		if(delta_H>99)
+		{
+			lcd_gotoxy(0, 0); // Выводим строки на LCD
+			lcd_puts("KoЅїpo»Д        ");//Контроль
+			lcd_gotoxy(0, 1); // Выводим строки на LCD
+			lcd_puts("і»a¶Ѕocїё   OTK§");//влажности ОТКЛ
+			
+		}
+		
+		
+		if ((!(PINB & 0b001000))&&(flag2==0) )//кнопка выбора значения нажата
+		{
+			J1;
+			delta_H=delta_H+2;
+			if(delta_H>100)
+			{
+				delta_H=0;
+			}
+
+			flag2=1;
+			EEPROM_write(0x12,delta_H);
+			_delay_ms(20);
+			J0;
+		}
+		if ((PINB & 0b001000)&&(flag2==1) )
+		{
+			flag2=0;
+			J1;
+			_delay_ms(10);
+			J0;
+		}
+		
+		if ((!(PINB & 0b010000))&&(flag3==0) )//кнопка выбора значения нажата
+		{
+			J1;
+			delta_H=delta_H-1;
+			if(delta_H<0)
+			{
+				delta_H=100;
+			}
+
+			flag3=1;
+			EEPROM_write(0x12,delta_H);
+			_delay_ms(20);
+			J0;
+		}
+		if ((PINB & 0b010000)&&(flag3==1) )
+		{
+			J1;
+			flag3=0;
+			_delay_ms(10);
+			J0;
+		}
+		
+		
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	if(service==9)
 	
 	{
 		lcd_gotoxy(13, 0);
@@ -434,6 +594,5 @@ void ServiceMenu () {
 		}
 	}
 	///////////////////////////////////////////////////////////////////////////////////////
-	
-	
+		
 }

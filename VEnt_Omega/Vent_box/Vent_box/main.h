@@ -57,6 +57,7 @@ int delta_U;
 int delta_F;
 int delta_T;
 int delta_H;
+int timer_M;
 int timer_U;
 unsigned char arm;       //пуск ручной
 int fire;
