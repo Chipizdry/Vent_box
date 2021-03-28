@@ -396,8 +396,10 @@ void ServiceMenu () {
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	if(service==7)
 	
-	{	
-		if(dt<=5.5)
+	{
+		if(delta_T>=61){service=service+1;}
+			
+		if((dt<=5.5)&&(delta_T<61))
 		{
 			lcd_gotoxy(0, 0); // Выводим строки на LCD
 			lcd_puts("Maєcёјa»ДЅaЗ    ");//Допустимая
@@ -468,8 +470,9 @@ void ServiceMenu () {
 	if(service==8)
 	
 	{
+		if(delta_H>=100){service=service+1;}
 		
-		if(dh<=10)
+		if((dh<=10)&&(delta_H<100))
 		{
 			lcd_gotoxy(0, 0); // Выводим строки на LCD
 			lcd_puts("Maєcёјa»ДЅaЗ    ");//Допустимая
