@@ -141,6 +141,12 @@ int main(void)
  if(delta_T>62){delta_T=61;}
  delta_H=EEPROM_read(0x12);
  if(delta_H>100){delta_T=100;}
+ dt1=EEPROM_read(0x13);//Гистерезис температуры целые градусы
+ dt2=EEPROM_read(0x14);//Гистерезис температуры десятые доли градуса	 
+ dh1=EEPROM_read(0x15);//Гистерезис влажности целые проценты
+ dh2=EEPROM_read(0x16);//Гистерезис влажности десятые проценты
+ dt=dt1+(dt2*0.1); 
+ dh=dh1+(dh2*0.1);
  service=0;
  fire=read_adc(0); //Чтение состояния входа ПОЖАР
  preasure=read_adc(1); // Состояние входа ВЫХОД НА РЕЖИМ

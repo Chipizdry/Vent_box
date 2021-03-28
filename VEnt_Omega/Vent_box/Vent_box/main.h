@@ -46,6 +46,12 @@
 
 float hd;
 float tm;
+float dh;
+float dt;
+int dh1;
+int dt1;
+int dh2;
+int dt2;
 unsigned char hum;
 uint8_t data[5];
 unsigned char buff [16];  //буфер дисплея
