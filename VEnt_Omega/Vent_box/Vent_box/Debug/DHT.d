@@ -22,7 +22,7 @@ DHT.d DHT.o: .././DHT.c .././DHT.h .././main.h \
  .././Registr.h .././ADConverter.h .././LCD.h .././registr.h \
  .././EepromDATA.h .././Voltmeter.h .././Inputs.h .././Led_driver.h \
  .././Omega.h .././MenuStatus.h .././Manual.h .././AutoTemp.h \
- .././ServiceMenu.h
+ .././ServiceMenu.h .././AirCond.h
 
 .././DHT.h:
 
@@ -93,3 +93,5 @@ d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.
 .././AutoTemp.h:
 
 .././ServiceMenu.h:
+
+.././AirCond.h:

@@ -22,7 +22,8 @@ ADConverter.d ADConverter.o: .././ADConverter.c .././ADConverter.h \
  d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
  .././Registr.h .././LCD.h .././registr.h .././EepromDATA.h \
  .././Voltmeter.h .././Inputs.h .././Led_driver.h .././Omega.h .././DHT.h \
- .././MenuStatus.h .././Manual.h .././AutoTemp.h .././ServiceMenu.h
+ .././MenuStatus.h .././Manual.h .././AutoTemp.h .././ServiceMenu.h \
+ .././AirCond.h
 
 .././ADConverter.h:
 
@@ -93,3 +94,5 @@ d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.
 .././AutoTemp.h:
 
 .././ServiceMenu.h:
+
+.././AirCond.h:

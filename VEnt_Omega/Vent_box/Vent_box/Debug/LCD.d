@@ -22,7 +22,7 @@ LCD.d LCD.o: .././LCD.c .././LCD.h .././main.h \
  .././Registr.h .././ADConverter.h .././EepromDATA.h .././Voltmeter.h \
  .././Inputs.h .././Led_driver.h .././Omega.h .././DHT.h \
  .././MenuStatus.h .././Manual.h .././AutoTemp.h .././ServiceMenu.h \
- .././registr.h
+ .././AirCond.h .././registr.h
 
 .././LCD.h:
 
@@ -91,5 +91,7 @@ d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.
 .././AutoTemp.h:
 
 .././ServiceMenu.h:
+
+.././AirCond.h:
 
 .././registr.h:

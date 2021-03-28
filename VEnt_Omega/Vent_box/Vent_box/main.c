@@ -196,6 +196,7 @@ J0;
 	meter();
 	ServiceMenu();
 	status();
+	vent_status();
 	if (regim!=2){mode=1;}
 	if (regim==2){mode=0;}
 	if((voltage+delta_U)<100)

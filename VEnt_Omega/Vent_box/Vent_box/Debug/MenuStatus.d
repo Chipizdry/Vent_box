@@ -22,7 +22,8 @@ MenuStatus.d MenuStatus.o: .././MenuStatus.c .././MenuStatus.h \
  d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
  .././Registr.h .././ADConverter.h .././LCD.h .././registr.h \
  .././EepromDATA.h .././Voltmeter.h .././Inputs.h .././Led_driver.h \
- .././Omega.h .././DHT.h .././Manual.h .././AutoTemp.h .././ServiceMenu.h
+ .././Omega.h .././DHT.h .././Manual.h .././AutoTemp.h .././ServiceMenu.h \
+ .././AirCond.h
 
 .././MenuStatus.h:
 
@@ -93,3 +94,5 @@ d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.
 .././AutoTemp.h:
 
 .././ServiceMenu.h:
+
+.././AirCond.h:

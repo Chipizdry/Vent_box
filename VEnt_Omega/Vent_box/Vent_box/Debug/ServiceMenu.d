@@ -22,7 +22,8 @@ ServiceMenu.d ServiceMenu.o: .././ServiceMenu.c \
  d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
  .././Registr.h .././ADConverter.h .././LCD.h .././registr.h \
  .././EepromDATA.h .././Voltmeter.h .././Inputs.h .././Led_driver.h \
- .././Omega.h .././DHT.h .././MenuStatus.h .././Manual.h .././AutoTemp.h
+ .././Omega.h .././DHT.h .././MenuStatus.h .././Manual.h .././AutoTemp.h \
+ .././AirCond.h
 
 d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h:
 
@@ -93,3 +94,5 @@ d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
 .././Manual.h:
 
 .././AutoTemp.h:
+
+.././AirCond.h:

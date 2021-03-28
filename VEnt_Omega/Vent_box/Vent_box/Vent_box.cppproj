@@ -152,6 +152,12 @@
     <Compile Include="ADConverter.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="AirCond.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="AirCond.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="AutoSet.c">
       <SubType>compile</SubType>
     </Compile>

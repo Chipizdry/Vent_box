@@ -38,6 +38,7 @@ SUBDIRS :=
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../ADConverter.c \
+../AirCond.c \
 ../AutoSet.c \
 ../AutoTemp.c \
 ../DHT.c \
@@ -64,6 +65,7 @@ ASM_SRCS +=
 
 OBJS +=  \
 ADConverter.o \
+AirCond.o \
 AutoSet.o \
 AutoTemp.o \
 DHT.o \
@@ -83,6 +85,7 @@ Voltmeter.o
 
 OBJS_AS_ARGS +=  \
 ADConverter.o \
+AirCond.o \
 AutoSet.o \
 AutoTemp.o \
 DHT.o \
@@ -102,6 +105,7 @@ Voltmeter.o
 
 C_DEPS +=  \
 ADConverter.d \
+AirCond.d \
 AutoSet.d \
 AutoTemp.d \
 DHT.d \
@@ -121,6 +125,7 @@ Voltmeter.d
 
 C_DEPS_AS_ARGS +=  \
 ADConverter.d \
+AirCond.d \
 AutoSet.d \
 AutoTemp.d \
 DHT.d \
@@ -153,6 +158,13 @@ LINKER_SCRIPT_DEP+=
 
 # AVR32/GNU C Compiler
 ./ADConverter.o: .././ADConverter.c
+	@echo Building file: $<
+	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
+	$(QUOTE)D:\Atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"D:\Atmel\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "D:\Atmel\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega328p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./AirCond.o: .././AirCond.c
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
 	$(QUOTE)D:\Atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"D:\Atmel\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "D:\Atmel\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega328p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

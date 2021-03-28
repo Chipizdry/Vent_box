@@ -1,4 +1,4 @@
-Voltmeter.d Voltmeter.o: .././Voltmeter.c .././Voltmeter.h .././main.h \
+AirCond.d AirCond.o: .././AirCond.c .././AirCond.h .././main.h \
  d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -20,11 +20,11 @@ Voltmeter.d Voltmeter.o: .././Voltmeter.c .././Voltmeter.h .././main.h \
  d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
  .././Registr.h .././ADConverter.h .././LCD.h .././registr.h \
- .././EepromDATA.h .././Inputs.h .././Led_driver.h .././Omega.h \
- .././DHT.h .././MenuStatus.h .././Manual.h .././AutoTemp.h \
- .././ServiceMenu.h .././AirCond.h
+ .././EepromDATA.h .././Voltmeter.h .././Inputs.h .././Led_driver.h \
+ .././Omega.h .././DHT.h .././MenuStatus.h .././Manual.h .././AutoTemp.h \
+ .././ServiceMenu.h
 
-.././Voltmeter.h:
+.././AirCond.h:
 
 .././main.h:
 
@@ -78,6 +78,8 @@ d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.
 
 .././EepromDATA.h:
 
+.././Voltmeter.h:
+
 .././Inputs.h:
 
 .././Led_driver.h:
@@ -93,5 +95,3 @@ d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.
 .././AutoTemp.h:
 
 .././ServiceMenu.h:
-
-.././AirCond.h:

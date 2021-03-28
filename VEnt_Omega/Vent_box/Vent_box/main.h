@@ -42,6 +42,7 @@
 #include "Manual.h"
 #include "AutoTemp.h"
 #include "ServiceMenu.h"
+#include "AirCond.h"
 #endif
 
 float hd;
