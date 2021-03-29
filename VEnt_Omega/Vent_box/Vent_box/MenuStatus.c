@@ -102,7 +102,6 @@ void MenuStatus(void)   //Для систем ВД/ПД
 void StatusBarTemp(void)
 
 {   
-	
 	 if(regim!=1)
 	 
 	 {
@@ -186,8 +185,7 @@ void StatusBarTemp(void)
 		}
 		
 	 if(regim==1)
-		 
-		 
+		 		 
 	 {
 			 
 			 lcd_gotoxy(0,1);

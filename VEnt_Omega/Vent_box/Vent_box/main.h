@@ -43,8 +43,7 @@
 #include "AutoTemp.h"
 #include "ServiceMenu.h"
 #include "AirCond.h"
-unsigned char temp_alarm;
-unsigned char hum_alarm;
+
 #endif
 
 float hd;
@@ -68,6 +67,8 @@ float delta_T;
 float delta_H;
 int timer_M;
 int timer_U;
+unsigned char temp_alarm;
+unsigned char hum_alarm;
 unsigned char arm;       //пуск ручной
 int fire;
 int pwr;  //Питание НОРМА 

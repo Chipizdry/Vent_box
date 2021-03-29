@@ -24,10 +24,8 @@ void Manual()
 	{
 		
 		lcd_gotoxy(0, 0);
-		lcd_puts("PyАЅo№ PEЈҐM    "); //Ручной режим
-			
+		lcd_puts("PyАЅo№ PEЈҐM    "); //Ручной режим	
 		StatusBarTemp();
-	
 	}
 	
 	
@@ -57,8 +55,7 @@ void Manual()
 	//__________________Выключение вентилятора____________________________
 	if((arm==0)  &&  (!(PINB & 0b0010000)) &&(working==1))//
 	
-	{
-		
+	{	
 		arm=1;
 		J1;
 		_delay_ms(150);

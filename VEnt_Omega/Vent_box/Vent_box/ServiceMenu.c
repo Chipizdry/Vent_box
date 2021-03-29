@@ -239,9 +239,9 @@ void ServiceMenu () {
 		if((delta_T<=60)&&(delta_T>=-10))
 		{
 			lcd_gotoxy(0, 0); // Выводим строки на LCD
-			lcd_puts("Ёopoґ cpaІoїєё ");//Порог сработки 
+			lcd_puts("Maєcёјa»ДЅaЗ    ");//Порог сработки 
 			lcd_gotoxy(0, 1); // Выводим строки на LCD
-			lcd_puts("T(max)-C      ");//датчика температуры
+			lcd_puts("їeј-pa,C      ");//датчика температуры
 			
 			lcd_gotoxy(14, 1);
 			lcd_num_to_str(delta_T/10, 1); // Выводим данные времени на LCD
