@@ -142,7 +142,7 @@ void StatusBarTemp(void)
 					break;
 					
 					case 5 :
-					lcd_puts("A³ap¸Ç äa·¸po³º¸");
+					lcd_puts("A?ap?? »???? DHT");//DHT
 					tt=1;
 					break;
 					
@@ -158,7 +158,7 @@ void StatusBarTemp(void)
 			
 		}
 		if (tt==0) {pr();d=0;}
-		
+		if (tt==1) {dht_read();}	
 		if( (!(PINB & 0b0010000)) && flag2==0) { flag2=1;}
 		
 		if( (PINB & 0b0010000) && flag2==1 )
@@ -224,7 +224,7 @@ void StatusBarTemp(void)
 						 break;
 						 
 						 case 5 :
-						 lcd_puts("A³ap¸Ç äa·¸po³º¸");
+						 lcd_puts("A?ap?? »???? DHT");//DHT
 						 tt=1;
 						 break;
 						 
@@ -240,6 +240,7 @@ void StatusBarTemp(void)
 				 
 			 }
 			 if (tt==0) {pr();d=0;}
+			 if (tt==1) {dht_read();}	 
 			 
 			 if( (PINB & 0b00100000) && flag2==0) { flag2=1;}
 			 

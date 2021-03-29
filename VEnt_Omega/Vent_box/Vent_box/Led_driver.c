@@ -347,7 +347,7 @@ void status()
 	else {stat[3]=0;}
 	if(volts_level==0) {stat[4]=1;} //Авария уровня напряжения
 	else {stat[4]=0;}
-	if(faza_fall==1){stat[5]=1;}    //Авария очерёдности фаз(фазировки)
+	if(receivemode==1){stat[5]=1;}    //Авария линии DHT 
 	else {stat[5]=0;}
 	if(revers==2) {stat[6]=1;}      //Реверс фаз
 	else {stat[6]=0;}
