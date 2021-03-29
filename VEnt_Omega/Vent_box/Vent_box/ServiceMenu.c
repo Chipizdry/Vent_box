@@ -246,7 +246,7 @@ void ServiceMenu () {
 			lcd_gotoxy(14, 1);
 			lcd_num_to_str(delta_T/10, 1); // Выводим данные времени на LCD
 			lcd_gotoxy(15, 1);
-			lcd_num_to_str(delta_T%100, 1);
+			lcd_num_to_str((int)delta_T%100, 1);
 			
 			
 		}
@@ -335,7 +335,7 @@ void ServiceMenu () {
 			lcd_gotoxy(14, 1);
 			lcd_num_to_str(delta_H/10, 1); // Выводим данные времени на LCD
 			lcd_gotoxy(15, 1);
-			lcd_num_to_str(delta_H%100, 1);
+			lcd_num_to_str((int)delta_H%100, 1);
 		}
 		if(delta_H>99)
 		{

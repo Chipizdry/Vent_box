@@ -22,12 +22,11 @@ void Manual()
 	if((arm==0) && (PINB & 0b0010000)&&(working==0))// Кнопка отпущена и вентилятор отключен
 	
 	{
-		//regim_fall=0;
 		
 		lcd_gotoxy(0, 0);
 		lcd_puts("PyАЅo№ PEЈҐM    "); //Ручной режим
 			
-			 pr();
+		StatusBarTemp();
 	
 	}
 	
@@ -41,7 +40,7 @@ void Manual()
 	{
 		J1;
 		arm=1;
-		_delay_ms(100);
+		_delay_ms(70);
 		milis=0;
 		
 		J0;
@@ -68,27 +67,17 @@ void Manual()
 	
 	if((arm==1)&&(PINB & 0b0010000)&&(working==1) )//
 	
-	{
+	  {
 		working=0;
 		arm=0;
 		
-			lcd_gotoxy(0, 0);
-			lcd_puts("PyАЅo№ PEЈҐM    ");  // lcd_puts("  MANUAL  SET   ");
+		lcd_gotoxy(0, 0);
+		lcd_puts("PyАЅo№ PEЈҐM    "); 
 			
-			pr();
-		
-		
-		if((preority==1)&&(technic>1))
-		{
-			lcd_gotoxy(0, 0);
-			lcd_puts("PyАЅo№ PEЈҐM    ");
-			//lcd_puts("  MANUAL  SET   ");
-		pr();
-		}
-		RN0;
-		_delay_ms(20);
-		
-	}
+		StatusBarTemp();
+	    RN0;
+    	_delay_ms(20);
+	  }
 	
 	if((arm==0)&&(working==1))// Кнопка отпущена , вентилятор запущен в ручном режиме ВЫВОД ИНФОРМАЦИИ НА ДИСПЛЕЙ
 	
