@@ -9,6 +9,7 @@
 #if(VENT_SYSTEM==1) //Для систем ВД/ПД
 
 void meter()
+
 {
 	lvl_1=0;
 	lvl_2=0;
@@ -336,7 +337,7 @@ void meter()
 
 void status()
 {
-	if(preority==2) {stat[0]=1;}    //Сигнал ПОЖАР
+	if((preority==2)||(external==1)) {stat[0]=1;}    //Сигнал ПОЖАР
 	else {stat[0]=0;}
 	if(pwr==0) {stat[1]=1;}         //Авария питания
 	else {stat[1]=0;}

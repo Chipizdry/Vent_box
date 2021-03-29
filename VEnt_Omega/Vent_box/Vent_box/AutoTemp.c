@@ -33,6 +33,11 @@ if( (preority==0)&&(external==0) )
 
 if((preority==2)||(external==1))
 {	
+	if((temp_alarm==1)||(hum_alarm==1)){
+		lcd_gotoxy(0, 0);
+		lcd_puts("¨ycº ¤A¨PEâ¢H   ");
+	}
+	
 	RN0;	
 }
 

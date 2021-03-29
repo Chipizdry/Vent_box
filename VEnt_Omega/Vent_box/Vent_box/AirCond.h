@@ -11,7 +11,7 @@
 #include "main.h"
 
 void vent_status(void);
-
+void valve_status(void);
 
 
 
