@@ -16,16 +16,24 @@ void AutoTemp()
  StatusBarTemp();
 if( (preority==0)&&(external==0) )
 {
-	technic=0;
-	lcd_gotoxy(0, 0);
-	lcd_puts("ABTO   PE£¥M    ");
-	 regim_fall=0;
-	RN0;
-	milis=0;
-	autorun=0;
+		
+	if((temp_alarm==1)||(hum_alarm=1)){
+		RN1;
+		lcd_gotoxy(0, 0);
+		lcd_puts("Pa²o¿a ³e½¿-pa  ");
+		
+	}
+	
+	if((temp_alarm==0)&&(hum_alarm=0)){
+		RN0;
+		lcd_gotoxy(0, 0);
+		lcd_puts("ABTO   PE£¥M    ");
+		
+	}
+	
 }
 
-if((preority==2)||(external==2))
+if((preority==2)||(external==1))
 {
 	autorun=1;
 	RN1;

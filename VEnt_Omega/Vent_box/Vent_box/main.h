@@ -43,6 +43,8 @@
 #include "AutoTemp.h"
 #include "ServiceMenu.h"
 #include "AirCond.h"
+unsigned char temp_alarm;
+unsigned char hum_alarm;
 #endif
 
 float hd;

@@ -16,26 +16,29 @@ void vent_status(void){
 	if((tm>=delta_T)&&(ind_t==0)){
 	ind_t=1;
 	G1;//Светодиод L2/D12	
+	 temp_alarm=1;
 	}
 	
 	if((tm<=(delta_T-dt))&&(ind_t==1)){
     ind_t=0;
 	G0;//Светодиод L2/D12	
+	 temp_alarm=0;
 	}
   }
  ////////////////////////////////////////////// 
   if(delta_H<=99){
 	  if((hd>=delta_H)&&(ind_h==0)){
 		  ind_h=1;
-		  F1;//Светодиод L1/D8
+		  H1;//Светодиод L1/D8
+		  hum_alarm=1;
 	  }
 	  
 	  if((hd<=(delta_H-dh))&&(ind_h==1)){
 		  ind_h=0;
-		  F0;//Светодиод L1/D8
+		  H0;//Светодиод L1/D8
+		  hum_alarm=0;
 	  }
   }
-	
-	
+		
 	
 }
