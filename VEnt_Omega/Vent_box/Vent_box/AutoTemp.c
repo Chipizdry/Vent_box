@@ -14,7 +14,7 @@ void AutoTemp()
 	NORMAL1;
 	
  StatusBarTemp();
-if( (preority==0)&&(external==0) )
+if((preority==0)&&(external==0))
 {
 		
 	if((temp_alarm==1)||(hum_alarm==1)){

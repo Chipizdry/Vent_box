@@ -19,7 +19,7 @@ void Manual()
 	
 	NORMAL0;
 	
-	if((arm==0) && (PINB & 0b0010000)&&(working==0))// Кнопка отпущена и вентилятор отключен
+	if((arm==0)&&(PINB & 0b0010000)&&(working==0))// Кнопка отпущена и вентилятор отключен
 	
 	{
 		
@@ -35,22 +35,44 @@ void Manual()
 	
 	if((!(PINB & 0b0010000))&& (arm==0) &&(working==0))//Кнопка нажата
 	
-	{
+	   {
 		J1;
 		arm=1;
 		_delay_ms(70);
 		milis=0;
-		
 		J0;
-	}
-	if((arm==1)  &&  (PINB & 0b0010000)&&(working==0))// Кнопка отпущена , вентилятор запущен в ручном режиме
+	   }
+	   
+	   
+	if((arm==1)&&(PINB & 0b0010000)&&(working==0))// Кнопка отпущена , вентилятор запущен в ручном режиме
 	
-     	{
+     	{   
+			 
+			 
+			 
+	 if((preority==0)&&(external==0))
+		{
 		   working=1;
 		   RN1;
 		   arm=0;
 		    _delay_ms(20);	
-     	}
+		}
+		
+		if((preority==2)||(external==1))
+		{
+			working=1;
+			RN0;
+			 arm=0;
+			lcd_gotoxy(0, 0);
+			lcd_puts("Ёycє ¤AЁPEвўH   ");
+			 _delay_ms(20);
+		}
+		
+		
+		
+		
+		
+     }
 	
 	//__________________Выключение вентилятора____________________________
 	if((arm==0)  &&  (!(PINB & 0b0010000)) &&(working==1))//
@@ -67,10 +89,8 @@ void Manual()
 	  {
 		working=0;
 		arm=0;
-		
 		lcd_gotoxy(0, 0);
 		lcd_puts("PyАЅo№ PEЈҐM    "); 
-			
 		StatusBarTemp();
 	    RN0;
     	_delay_ms(20);
@@ -79,10 +99,23 @@ void Manual()
 	if((arm==0)&&(working==1))// Кнопка отпущена , вентилятор запущен в ручном режиме ВЫВОД ИНФОРМАЦИИ НА ДИСПЛЕЙ
 	
 	{	
+		
+		if((preority==0)&&(external==0))
+		{
 			regim_fall=0;
 			lcd_gotoxy(0,0);
-			lcd_puts("PyАЅo№ Ё©CK іeЅї"); //Ручной пуск вентилятора
+			lcd_puts("PyАЅo№ Ё©CK іeЅї"); //Ручной пуск вентилятора	
+		}
+		
+		if((preority==2)||(external==1))
+		{
 			
+			RN0;
+			lcd_gotoxy(0, 0);
+			lcd_puts("Ёycє ¤AЁPEвўH   ");
+			
+		}
+					
 	}
 	
 }
