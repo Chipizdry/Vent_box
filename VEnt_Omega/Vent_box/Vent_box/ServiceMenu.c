@@ -264,18 +264,19 @@ void ServiceMenu () {
 		{
 			J1;
 			flag2=1;
-		    menu =milis-timer_M;
-			if((menu>1)&&(!(PINB & 0b001000)))
-			{
-				delta_T=delta_T+2;
-				timer_M=milis;	
-				flag2=0;
-				lcd_gotoxy(10, 1);////
-				lcd_num_to_str(menu%100,1);
-				lcd_gotoxy(12, 1);////
-				lcd_num_to_str(menu/10,2);
+		   // menu =milis-timer_M;
+			
+		//	if((menu>1)&&(!(PINB & 0b001000)))
+		//	{
+				//delta_T=delta_T+2;
+		//		timer_M=milis;	
+				flag2=1;
+		//		lcd_gotoxy(10, 1);////
+		//		lcd_num_to_str(menu%100,1);
+		//		lcd_gotoxy(12, 1);////
+		//		lcd_num_to_str(menu/10,2);
 				
-			}
+			//}
 			
 			delta_T=delta_T+2;
 			if(delta_T>62)

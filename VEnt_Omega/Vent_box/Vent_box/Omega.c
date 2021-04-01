@@ -140,13 +140,12 @@
 				 if(temp_ID==0){  PORTB &=~ (1 <<PB1);}
 			    }  
 				
-				 if((tct>=31)&&(tct<32))  //Активация выхода -тревога
-				 {
-					 temp_ID|=((1)&(0b1));
-					 if(temp_ID==1){  PORTB |= (1 <<PB1); PORTC|= (1 <<PC5);}
-					 if(temp_ID==0){  PORTB &=~(1 <<PB1);}
-				 }
-				
+			if((tct==30)&&(tct<32))  //Активация выхода -тревога
+			{
+				temp_ID|=((external)&(0b1));
+				if(temp_ID==1){  PORTB |= (1 <<PB1); PORTC|= (1 <<PC5);}
+				if(temp_ID==0){  PORTB &=~(1 <<PB1);}
+			}	
 				
 				
 				
@@ -156,6 +155,28 @@
 				 if(temp_ID==1){  PORTB |= (1 <<PB1); PORTC|= (1 <<PC5);}
 				 if(temp_ID==0){  PORTB &=~ (1 <<PB1);}
 			    }
+        /* 
+			if((tct>=36)&&(tct<41))  //Активация выхода -тревога
+			{
+				temp_ID|=((external)&(0b1));
+				if(temp_ID==1){  PORTB |= (1 <<PB1); PORTC|= (1 <<PC5);}
+				if(temp_ID==0){  PORTB &=~(1 <<PB1);}
+			}	 
+			 
+			if((tct>=42)&&(tct<46))  //Статус прибора.выходов
+			{
+				temp_ID|=((1)&(0b1));
+				if(temp_ID==1){  PORTB |= (1 <<PB1); PORTC|= (1 <<PC5);}
+				if(temp_ID==0){  PORTB &=~(1 <<PB1);}
+			}
+				 
+			if((tct>=49)&&(tct<50))  //авария датчика??????
+			{
+				temp_ID|=((1)&(0b1));
+				if(temp_ID==1){  PORTB |= (1 <<PB1); PORTC|= (1 <<PC5);}
+				if(temp_ID==0){  PORTB &=~(1 <<PB1);}
+			}
+		*/	
 				 
 		   if((tct>=39)&&(tct<40))  //авария датчика DHT
 			    {
@@ -192,9 +213,9 @@
 		   if(tct==45){  PORTB |= (1 <<PB1); PORTC|= (1 <<PC5);}
 		   if(tct==46)
 		   {
-			   if((detect[35]==1)&&(detect[42]==1)) {J1;}
+			   if((detect[35]==1)&&(detect[42]==1)) {J1;external=0;}
 			   if((detect[36]==1)&&(detect[43]==1)) {J0;external=0;}
-			   if((detect[38]==1)&&(detect[45]==1)) {external=2;}
+			   if((detect[38]==1)&&(detect[45]==1)) {external=1;}
 			   if((detect[37]==1)&&(detect[44]==1)) {external=0;}
 		   }
 		   break;

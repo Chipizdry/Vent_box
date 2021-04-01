@@ -37,7 +37,11 @@ if((preority==2)||(external==1))
 		lcd_gotoxy(0, 0);
 		lcd_puts("¨ycº ¤A¨PEâ¢H   ");
 	}
-	
+	if((temp_alarm==0)&&(hum_alarm==0)){
+		RN0;
+		lcd_gotoxy(0, 0);
+		lcd_puts("ABTO   PE£¥M    ");
+	}
 	RN0;	
 }
 
