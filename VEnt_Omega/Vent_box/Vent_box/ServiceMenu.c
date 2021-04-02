@@ -407,7 +407,7 @@ void ServiceMenu () {
 			
 			
 			lcd_gotoxy(0,1);              //перешли
-			sprintf(buff,"Tmp+/-%.1fC      ",dt);
+			sprintf(buff,"Tmp+/-   %.1fC      ",dt);
 			lcd_puts(buff);
 		}
 		if(dt>5.5)
@@ -480,7 +480,7 @@ void ServiceMenu () {
 			
 			
 			lcd_gotoxy(0,1);              //перешли
-			sprintf(buff,"Hm+/-%.1f%%     ",dh);
+			sprintf(buff,"Hm+/-  %.1f%%     ",dh);
 			lcd_puts(buff);
 		}
 		if(dh>10)
@@ -545,15 +545,13 @@ void ServiceMenu () {
 	if(service==9)
 	
 	{
-		lcd_gotoxy(13, 0);
-		lcd_num_to_str(relay, 3);
-		// adress=EEPROM_read(0x10);
+		
 		if(adress<128)
 		{
 			lcd_gotoxy(0, 0); // Выводим строки на LCD
 			lcd_puts("System_adres    ");//Допустимый
 			lcd_gotoxy(0, 1); // Выводим строки на LCD
-			lcd_puts("             ");//сдвиг фаз
+			lcd_puts("            ");//сдвиг фаз
 			
 			lcd_gotoxy(12, 1);
 			lcd_num_to_str(adress/10, 2); // Выводим данные времени на LCD
@@ -567,8 +565,9 @@ void ServiceMenu () {
 			lcd_gotoxy(0, 1); // Выводим строки на LCD
 			lcd_puts("        OTK§    ");//сдвига фаз ОТКЛ
 			
-		}
 		
+		}
+//////////////////////////////////////////////////////////////////////////////////////////
 		
 		if ((!(PINB & 0b001000))&&(flag2==0) )//кнопка выбора значения нажата
 		{
@@ -578,6 +577,11 @@ void ServiceMenu () {
 			{
 				adress=0;
 			}
+
+           if(adress<0)
+             {
+	          adress=127;
+             }
 
 			flag2=1;
 			EEPROM_write(0x10,adress);
@@ -591,7 +595,36 @@ void ServiceMenu () {
 			_delay_ms(10);
 			J0;
 		}
-	}
-	///////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////		
 		
+		if ((!(PINB & 0b0010000))&&(flag2==0) )//кнопка выбора значения нажата
+		{
+			J1;
+			adress=adress-1;
+			if(adress>128)
+			{
+				adress=0;
+			}
+
+            if(adress<0)
+            {
+	            adress=127;
+            }
+			  
+			flag2=1;
+			EEPROM_write(0x10,adress);
+			_delay_ms(20);
+			J0;
+		}
+		if ((PINB & 0b0010000)&&(flag2==1) )
+		{
+			flag2=0;
+			J1;
+			_delay_ms(10);
+			J0;
+		}
+			
+   }
+	///////////////////////////////////////////////////////////////////////////////////////
+	
 }
