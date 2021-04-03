@@ -11,7 +11,7 @@
 #include "Registr.h"
 #include "LCD.h"
 #include "ADConverter.h"
-int menu=0;
+int menu_t=0;
 void ServiceMenu () {
     
 	// Сервисный режим
@@ -332,6 +332,26 @@ void ServiceMenu () {
 			_delay_ms(10);
 			J0;
 		}
+/////////////////////.....////////////////////////
+         if ((!(PINB & 0b001000))&&(flag2==1) )//кнопка выбора значения нажата
+         {
+			 menu_t=milis-timer_M;
+			 
+			 
+			 if(menu_t>3000){
+				 delta_T=delta_T+1;
+				 timer_M=milis;
+				 if(delta_T>62)
+				 {
+					 delta_T=0;
+				 }
+
+				 EEPROM_write(0x11,delta_T);
+				
+			 }
+			 
+			 
+		 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
 		if ((!(PINB & 0b010000))&&(flag3==0) )//кнопка выбора значения нажата
 		{
