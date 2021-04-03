@@ -13,19 +13,13 @@ void Alarm_line()
 	if ((590<=fire)&&(fire  <=700)&&(TypeAL==1))
 	{
 		preority=2;
-		//lcd_gotoxy(0,1);
-		// lcd_puts("FIRE ALARM      ");
-		//lcd_puts("!C¸´½a»_¨O£AP_! ");
-		FL1;
+		
 	}
 	if((fire>=400)&&(fire<589)&&(TypeAL==0))
 	
 	{
 		preority=2;
-		//lcd_gotoxy(0,1);
-		// lcd_puts("FIRE ALARM      ");
-		//lcd_puts("!C¸´½a»_¨O£AP_! ");
-		FL1;
+
 	}
 	
 	
@@ -37,14 +31,12 @@ void Alarm_line()
 	if((fire>=400)&&(fire<589)&&(TypeAL==1)) //Íîðìà âõîäà ÒÐÅÂÎÃÀ
 	{
 		preority=0;
-		FL0;
-		
+			
 	}
 	if ((590<=fire)&&(fire<=700)&&(TypeAL==0)) //Íîðìà âõîäà ÒÐÅÂÎÃÀ
 	{
 		preority=0;
-		FL0;
-		
+			
 	}
 }
 

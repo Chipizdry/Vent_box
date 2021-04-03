@@ -245,6 +245,17 @@ void meter()
 	{
 		past2=timing;
 	}
+	if((preority==2)||(external==1))
+	{
+		FL1;
+		
+	}
+	
+	if((preority==0)&&(external==0))
+	{
+		FL0;
+	}
+	
 		
 }
 
@@ -365,6 +376,17 @@ void status()
 	}
 	if(al==0) D0;
 	if(al>0) D1;
+	
+	if((preority==2)||(external==1))
+	{
+		FL1;
+		
+	}
+	
+	if((preority==0)&&(external==0))
+	{
+		FL0;
+	}
 }
 
 #endif
