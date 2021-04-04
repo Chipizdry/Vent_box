@@ -82,7 +82,10 @@ void dht_read()
 	}
 	if(hum==0){test=test+1;}
 		if (test>100){test=100;receivemode=1;}
-			if (test<=100){receivemode=0;}
+			if (test<100){receivemode=0;}
+	if(hum==1){test=test-1;}	
+		if (test<2){receivemode=0;test=5;}
+				
 }
 
 

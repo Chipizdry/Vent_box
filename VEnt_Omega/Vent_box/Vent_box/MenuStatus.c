@@ -142,7 +142,7 @@ void StatusBarTemp(void)
 					break;
 					
 					case 5 :
-					lcd_puts("A?ap?? »???? DHT");//DHT
+					lcd_puts("A³ap¸Ç »¸½¸¸ DHT");//DHT
 					tt=1;
 					break;
 					
