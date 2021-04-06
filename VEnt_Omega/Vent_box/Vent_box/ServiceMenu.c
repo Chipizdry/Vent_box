@@ -18,6 +18,7 @@ void ServiceMenu () {
 	if ((PINB & 0b0100000)  && flag1==0 && regim==3) //Кнопка нажата
 	{
 		J1;
+	    timer_M=timing;
 		service++;
 		flag1 =1;
 		_delay_ms(50);
@@ -31,6 +32,20 @@ void ServiceMenu () {
 		EEPROM_write(0x00, service);
 		J0;
 	}
+	
+	if ((PINB & 0b0100000)  && flag1==1){
+		menu_t=timing-timer_M;
+		
+		if(menu_t>2000){
+			J1;
+			timer_M=timing;
+			regim=3;
+			service=0;
+			EEPROM_write(0x00, service);
+			J0;
+		}
+	}
+	
 	
 	if (!(PINB & 0b0100000) && flag1==1  && regim==3  ) //Кнопка отпущена
 	{
@@ -339,10 +354,9 @@ void ServiceMenu () {
          if ((!(PINB & 0b001000))&&(flag2==1))//кнопка выбора значения нажата
          {
 			 menu_t=timing-timer_M;
-             lcd_gotoxy(8, 1);
-             lcd_num_to_str(menu_t, 4); // Выводим данные времени на LCD	
+             
 			 		 
-			 if(menu_t>3000){
+			 if(menu_t>2000){
 				 delta_T=delta_T+1;
 				 timer_M=timing;
 				 if(delta_T>62)

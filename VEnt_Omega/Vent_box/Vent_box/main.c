@@ -34,7 +34,7 @@ char read_enable = 0;
   //----------------Работа прерывателя таймера------------------------------------
   ISR(TIMER2_COMPA_vect){
 	 //  PORTD|= (1 <<PD1); // Вспомогательная строб-индикация состояния 
-	  timing=timing+1;
+	  timing++;
 	  Omega_slave();  
 	// PORTD &=~ (1 <<PD1);  // Вспомогательная строб-индикация состояния  
   }
@@ -175,8 +175,8 @@ J0;
 	if( ((voltage+delta_U)<100)||((faza+delta_F)<100) )
 	{
 		RUN0;
-		timer_U=milis;
 		pwr=0;
+		timer_U=timing;
 	}
 	
 	if(  ((voltage+delta_U)>=100)|| (delta_U>40) )
@@ -197,6 +197,7 @@ J0;
 	ServiceMenu();
 	status();
 	vent_status();
+	valve_status();
 	if (regim!=2){mode=1;}
 	if (regim==2){mode=0;}
 	if((voltage+delta_U)<100)

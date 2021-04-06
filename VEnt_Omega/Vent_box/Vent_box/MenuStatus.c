@@ -147,7 +147,7 @@ void StatusBarTemp(void)
 					break;
 					
 					case 6 :
-					lcd_puts("Pe³epc äa· 380B ");
+					lcd_puts("A³ap¸Ç º»a¾a½a  ");//Àâàğèÿ êëàïàíà
 					tt=1;
 					break;
 					
@@ -224,12 +224,12 @@ void StatusBarTemp(void)
 						 break;
 						 
 						 case 5 :
-						 lcd_puts("A?ap?? »???? DHT");//DHT
+						 lcd_puts("A³ap¸Ç »¸½¸¸ DHT");//DHT
 						 tt=1;
 						 break;
 						 
 						 case 6 :
-						 lcd_puts("Pe³epc äa· 380B ");
+						 lcd_puts("A³ap¸Ç º»a¾a½a  ");//Àâàğèÿ êëàïàíà
 						 tt=1;
 						 break;
 						 

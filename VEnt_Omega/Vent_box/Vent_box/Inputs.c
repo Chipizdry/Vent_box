@@ -39,6 +39,7 @@ void Alarm_line()
 			
 	}
 }
+#if(VENT_SYSTEM==1)
 
 void PS500_line()
 {
@@ -89,3 +90,49 @@ void PS500_line()
 	}
 		
 }
+
+#endif
+
+
+#if(VENT_SYSTEM==2)
+
+void PS500_line()
+{
+	preasure=read_adc(1); //Чтение состояния входа Датчика давления
+	if ((590<=preasure) && (preasure  <=700) && (TypePS==1)) //Сработка в рабочем режиме
+	{
+		technic=1;
+		C1;
+	}
+	
+	if((preasure>=400)&&(preasure<589) && (TypePS==0))  //Сработка в рабочем режиме
+	{
+		technic=1;
+		C1;
+	}
+	
+	
+	
+	
+	if((preasure<400)||(preasure>750)) //Авария цепи датчика давления
+	{
+		technic=2;
+		
+		D1;//  Аткивация выхода АВАРИЯ
+	}
+	
+	if((preasure>=400)&&(preasure<589) && (TypePS==1))  //Норма датчика
+	{
+		technic=0;
+		C0;
+	}
+	
+	if ((590<=preasure) && (preasure<=700) && (TypePS==0)) //Норма датчика
+	{
+		technic=0;
+		C0;
+	}
+	
+}
+
+#endif

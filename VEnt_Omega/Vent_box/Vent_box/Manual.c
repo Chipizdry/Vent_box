@@ -47,15 +47,14 @@ void Manual()
 	if((arm==1)&&(PINB & 0b0010000)&&(working==0))// Кнопка отпущена , вентилятор запущен в ручном режиме
 	
      	{   
-			 
-			 
-			 
+			 		 
 	 if((preority==0)&&(external==0))
 		{
 		   working=1;
 		   RN1;
 		   arm=0;
 		    _delay_ms(20);	
+			autorun=1;
 		}
 		
 		if((preority==2)||(external==1))
@@ -66,6 +65,7 @@ void Manual()
 			lcd_gotoxy(0, 0);
 			lcd_puts("Ёycє ¤AЁPEвўH   ");
 			 _delay_ms(20);
+			 autorun=0;
 		}
 		
 		
@@ -94,6 +94,7 @@ void Manual()
 		StatusBarTemp();
 	    RN0;
     	_delay_ms(20);
+		autorun=0;
 	  }
 	
 	if((arm==0)&&(working==1))// Кнопка отпущена , вентилятор запущен в ручном режиме ВЫВОД ИНФОРМАЦИИ НА ДИСПЛЕЙ
@@ -113,6 +114,7 @@ void Manual()
 			RN0;
 			lcd_gotoxy(0, 0);
 			lcd_puts("Ёycє ¤AЁPEвўH   ");
+			autorun=0;
 			
 		}
 					

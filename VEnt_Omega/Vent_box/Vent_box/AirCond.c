@@ -45,7 +45,16 @@ void vent_status(void){
 
 void valve_status(void){
 	
+	if((pwr==0)||(technic!=0)||(autorun==0)){timer_U=timing;timer_FLV=0;}
 	
+	if((pwr==1)&&(technic==0)&&(autorun==1)){
+		
+	timer_FLV=(timing-timer_U)/7800;
+		
+	if(timer_FLV>=interval){ flv_alarm=1; }
+	  
+		
+	}
 	
 	
 }

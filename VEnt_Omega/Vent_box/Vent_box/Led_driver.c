@@ -360,7 +360,7 @@ void status()
 	else {stat[4]=0;}
 	if(receivemode==1){stat[5]=1;}    //Авария линии DHT 
 	else {stat[5]=0;}
-	if(revers==2) {stat[6]=1;}      //Реверс фаз
+	if(flv_alarm==1) {stat[6]=1;}      //ОЗК зарыт 
 	else {stat[6]=0;}
 	if(regim_fall==1) {stat[8]=1;} 	//Невыход на режим
 	else {stat[8]=0;}

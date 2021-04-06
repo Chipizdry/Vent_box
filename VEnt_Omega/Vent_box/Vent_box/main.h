@@ -67,6 +67,8 @@ float delta_T;
 float delta_H;
 int timer_M;
 int timer_U;
+int timer_FLV;//Таймер положения клапана 
+unsigned char flv_alarm;// ОЗК закрыт 
 unsigned char temp_alarm;
 unsigned char hum_alarm;
 unsigned char arm;       //пуск ручной
