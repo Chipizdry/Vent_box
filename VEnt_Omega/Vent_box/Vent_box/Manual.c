@@ -106,6 +106,7 @@ void Manual()
 			regim_fall=0;
 			lcd_gotoxy(0,0);
 			lcd_puts("PyАЅo№ Ё©CK іeЅї"); //Ручной пуск вентилятора	
+			StatusBarTemp();
 		}
 		
 		if((preority==2)||(external==1))
@@ -115,7 +116,7 @@ void Manual()
 			lcd_gotoxy(0, 0);
 			lcd_puts("Ёycє ¤AЁPEвўH   ");
 			autorun=0;
-			
+			StatusBarTemp();
 		}
 					
 	}

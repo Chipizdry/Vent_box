@@ -36,7 +36,7 @@ void ServiceMenu () {
 	if ((PINB & 0b0100000)  && flag1==1){
 		menu_t=timing-timer_M;
 		
-		if(menu_t>2000){
+		if(menu_t>4000){
 			J1;
 			timer_M=timing;
 			regim=3;
