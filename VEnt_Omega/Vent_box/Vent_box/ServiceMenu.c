@@ -24,7 +24,7 @@ void ServiceMenu () {
 		_delay_ms(50);
 		lcd_gotoxy(0, 1); // Выводим строки на LCD
 		lcd_puts("                ");
-		if(service>9)
+		if(service>10)
 		{
 			regim=3;
 			service=0;
@@ -699,4 +699,52 @@ void ServiceMenu () {
    }
 	///////////////////////////////////////////////////////////////////////////////////////
 	
+	if(service==10)
+	
+	{
+		lcd_gotoxy(0, 0); // Выводим строки на LCD
+		lcd_puts("-TEST-TEST-TEST-");//Контроль
+	
+	if ((!(PINB & 0b001000))&&(flag2==0))//кнопка выбора значения нажата
+	{
+		
+	  timer_M=timing;
+	  J1;
+	  RUN1;
+	  RN1;
+	  NORMAL1;
+	  C1;
+	  D1;
+	  FL1;
+	  G1;
+	  H1;
+	  F1;
+	  _delay_ms(1000);
+	  flag2=1;
+	}
+	
+	if ((PINB & 0b001000)&&(flag2==1) )
+	{
+		
+		menu_t=timing-timer_M;
+		
+		if(menu_t>6000){
+		J1;
+		_delay_ms(10);
+		
+		 RUN0;
+		 RN0;
+		 NORMAL0;
+		 C0;
+		 D0;
+		 FL0;
+		 G0;
+		 H0;
+		 F0;
+		 J0;
+		 flag2=0;
+		}
+	}
+	
+	}
 }
