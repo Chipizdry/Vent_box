@@ -51,7 +51,8 @@ void Manual()
 	 if((preority==0)&&(external==0))
 		{
 		   working=1;
-		   RN1;
+		   soft_start=1;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		   //RN1;
 		   arm=0;
 		    _delay_ms(20);	
 			autorun=1;
@@ -61,6 +62,7 @@ void Manual()
 		{
 			working=1;
 			RN0;
+			soft_start=0;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			 arm=0;
 			lcd_gotoxy(0, 0);
 			lcd_puts("®yc∫ §A®PE‚¢H   ");
@@ -92,6 +94,7 @@ void Manual()
 		lcd_gotoxy(0, 0);
 		lcd_puts("Py¿Ωoπ PE£•M    "); 
 		StatusBarTemp();
+		soft_start=0; //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	    RN0;
     	_delay_ms(20);
 		autorun=0;
@@ -113,6 +116,7 @@ void Manual()
 		{
 			
 			RN0;
+			soft_start=0; //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			lcd_gotoxy(0, 0);
 			lcd_puts("®yc∫ §A®PE‚¢H   ");
 			autorun=0;

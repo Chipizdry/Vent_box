@@ -9,6 +9,8 @@ int read_adc (unsigned char ch)
 	while((ADCSRA & (1 << ADSC))); // Ждем окончания преобразования
 	ADC=(ADCL|ADCH<<8);
 	return(ADC); // Возвращаем значение АЦП
+	ADCL=0;
+	ADCH=0;
 }
 
 // Действующее значение АЦП
@@ -61,4 +63,5 @@ int current_adc ()
 	return u_curr;
 	return v_curr;
 	return w_curr;
+	return volt_3;
 }

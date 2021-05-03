@@ -225,12 +225,32 @@
 	  }
 		 
  }
-/* 
+
 void start(void){
-	
- blink=blink++;
-	
+if(soft_start==1){
+
+ blink=blink+1;	
+ if(blink<39000){tk=blink/75;}
+// if((blink>=15500)&&(blink<31000)){tk=blink/155;}	 
+// if((blink>=31000)&&(blink<79000)){tk=blink/155;}	
+	 
+peak=0;	 
+
+peak=read_adc(6);
+/*
+if((peak>=(510-tk))&&(peak<=(514+tk))){
+run_status=10;
+RN1;	
+}
+*/
+if((peak>=500)&&(peak<=(524))){
+	run_status=10;
+	RN1;
 	
 	
 }
-*/
+else{RN0;}
+
+
+}
+}

@@ -36,7 +36,7 @@ int detect[145];
 
 
 
-
+void start();
 void Omega_slave();
 void protocol();
 

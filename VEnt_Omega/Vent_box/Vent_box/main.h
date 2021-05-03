@@ -72,7 +72,12 @@ unsigned char flv_alarm;// ОЗК закрыт
 unsigned char temp_alarm;
 unsigned char hum_alarm;
 unsigned char arm;       //пуск ручной
-int fire;
+int fire; //АЦП входа ПОЖАР
+int run_status; //флаг подачи питания 
+int peak; //Пиковое напряжение пуска
+int tk; //коэффициент подачи питания
+int blink; // переменная состояния задержки пуска
+unsigned char soft_start; //Активация плавного пуска 
 int pwr;  //Питание НОРМА 
 unsigned char preority;
 int preasure;//состояние входа PS
