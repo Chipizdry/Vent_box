@@ -475,7 +475,7 @@ void ServiceMenu () {
 		if((dt<=5.5)&&(delta_T<61))
 		{
 			lcd_gotoxy(0, 0); // Âûâîäèì ñòðîêè íà LCD
-			lcd_puts("Maºc¸¼a»Ä½aÇ    ");//Äîïóñòèìàÿ
+			lcd_puts("¡¸c¿epe·¸c      ");//Äîïóñòèìàÿ
 			
 			
 			lcd_gotoxy(0,1);              //ïåðåøëè
@@ -548,7 +548,7 @@ void ServiceMenu () {
 		if((dh<=10)&&(delta_H<100))
 		{
 			lcd_gotoxy(0, 0); // Âûâîäèì ñòðîêè íà LCD
-			lcd_puts("Maºc¸¼a»Ä½aÇ    ");//Äîïóñòèìàÿ
+			lcd_puts("¡¸c¿epe·¸c      ");//Äîïóñòèìàÿ
 			
 			
 			lcd_gotoxy(0,1);              //ïåðåøëè

@@ -225,3 +225,12 @@
 	  }
 		 
  }
+/* 
+void start(void){
+	
+ blink=blink++;
+	
+	
+	
+}
+*/

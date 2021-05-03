@@ -35,7 +35,7 @@ char read_enable = 0;
   ISR(TIMER2_COMPA_vect){
 	 //  PORTD|= (1 <<PD1); // ¬спомогательна€ строб-индикаци€ состо€ни€ 
 	  timing++;
-	  Omega_slave();  
+		 Omega_slave();  
 	// PORTD &=~ (1 <<PD1);  // ¬спомогательна€ строб-индикаци€ состо€ни€  
   }
   
@@ -197,7 +197,7 @@ J0;
 	ServiceMenu();
 	status();
 	vent_status();
-	valve_status();
+	//valve_status();
 	if (regim!=2){mode=1;}
 	if (regim==2){mode=0;}
 	if((voltage+delta_U)<100)
