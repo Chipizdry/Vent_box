@@ -57,7 +57,11 @@ void ServiceMenu () {
 	
 	{
 		lcd_gotoxy(0, 0); // Выводим строки на LCD
-		lcd_puts("Oїє»oЅeЅёe      ");//Отклонение амплитуд
+		lcd_puts("Oїє»oЅeЅёe(   V)");//Отклонение амплитуд
+		
+		w =(w_curr -512)/1.414213*1.16;
+		lcd_gotoxy(11, 0);
+		lcd_num_to_str(w, 3); // Выводим данные АЦП3 на LCD
 		lcd_gotoxy(0, 1);
 		lcd_puts("aјѕ»ёїyг,B+/-");
 		lcd_gotoxy(14, 1);
