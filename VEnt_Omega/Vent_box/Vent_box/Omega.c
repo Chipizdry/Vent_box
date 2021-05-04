@@ -227,18 +227,19 @@
  }
 
 void start(void){
-	
-if(pwm_finish==0)
+if(soft_start==1)
+   {
+  if(pwm_finish==0)
 
   {
 	
     blink=blink+1;	
-	if(blink<15748){tk=blink/196;}
+	if(blink<15748){tk=blink/200;}
 
     peak=0;	
     if(pwr_flag==0){peak=read_adc(6);}
 
-    if((peak>=500)&&(peak<=(524))&&(pwr_flag==0)&&((blink-blink_detect)>68))
+    if((peak>=500)&&(peak<=(524))&&(pwr_flag==0)&&((blink-blink_detect)>69))
 	{
 	blink_detect=blink;
 	pwr_flag=1;
@@ -255,5 +256,5 @@ if(pwm_finish==0)
     else{RN0;}
 	if(blink>=15748){pwm_finish=1;RN1;}	
  }
-
+	}
 }

@@ -36,8 +36,7 @@ char read_enable = 0;
 	   PORTD|= (1 <<PD1); // ¬спомогательна€ строб-индикаци€ состо€ни€ 
 	  timing++;
 		 Omega_slave();  
-		
-		if(soft_start==1){start();}
+		 start();
 	 PORTD &=~ (1 <<PD1);  // ¬спомогательна€ строб-индикаци€ состо€ни€  
   }
   
