@@ -74,6 +74,10 @@ unsigned char hum_alarm;
 unsigned char arm;       //пуск ручной
 int fire; //АЦП входа ПОЖАР
 int run_status; //флаг подачи питания 
+unsigned char pwr_flag; // PWM в активном состоянии 
+unsigned char pwm_finish; //флаг завершения разгона 
+unsigned char run_relay; //флаг переключения на постоянку
+int blink_detect;
 int peak; //Пиковое напряжение пуска
 int tk; //коэффициент подачи питания
 int blink; // переменная состояния задержки пуска

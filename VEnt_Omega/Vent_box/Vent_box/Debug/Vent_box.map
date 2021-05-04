@@ -103,11 +103,13 @@ relay               0x2               ADConverter.o
 v_curr              0x2               ADConverter.o
 flag2               0x1               ADConverter.o
 volt_3              0x2               ADConverter.o
+run_relay           0x1               ADConverter.o
 active              0x2               ADConverter.o
 voltage             0x2               ADConverter.o
 adress_t            0x2               ADConverter.o
 adres_call          0x2               ADConverter.o
 lvl_1               0x1               ADConverter.o
+pwr_flag            0x1               ADConverter.o
 blink               0x2               ADConverter.o
 norm                0x14              ADConverter.o
 mode                0x1               ADConverter.o
@@ -129,6 +131,7 @@ faza_fall           0x1               ADConverter.o
 al                  0x1               ADConverter.o
 tt                  0x2               ADConverter.o
 w_1                 0x2               ADConverter.o
+pwm_finish          0x1               ADConverter.o
 peak                0x2               ADConverter.o
 counter             0x2               ADConverter.o
 regim_fall          0x1               ADConverter.o
@@ -144,6 +147,7 @@ answer              0x2               ADConverter.o
 adress              0x2               ADConverter.o
 w_curr              0x2               ADConverter.o
 hi_flag             0x1               ADConverter.o
+blink_detect        0x2               ADConverter.o
 delta_T             0x4               ADConverter.o
 lvl_3               0x1               ADConverter.o
 past2               0x2               ADConverter.o
@@ -196,14 +200,14 @@ Discarded input sections
                 0x00000000       0x52 AutoSet.o
  .text.AutoSet  0x00000000      0x1ec AutoSet.o
  .bss.tempdata  0x00000000        0x4 AutoSet.o
- .debug_info    0x00000000      0xbb2 AutoSet.o
+ .debug_info    0x00000000      0xbfa AutoSet.o
  .debug_abbrev  0x00000000      0x15e AutoSet.o
  .debug_loc     0x00000000       0xa9 AutoSet.o
  .debug_aranges
                 0x00000000       0x20 AutoSet.o
  .debug_ranges  0x00000000       0x10 AutoSet.o
  .debug_line    0x00000000      0x2b0 AutoSet.o
- .debug_str     0x00000000      0x496 AutoSet.o
+ .debug_str     0x00000000      0x4c1 AutoSet.o
  .comment       0x00000000       0x31 AutoSet.o
  .debug_frame   0x00000000       0x38 AutoSet.o
  .text          0x00000000        0x0 AutoTemp.o
@@ -251,14 +255,14 @@ Discarded input sections
  .text.ManualSet
                 0x00000000      0x32c ManualSet.o
  .bss.tempdata  0x00000000        0x4 ManualSet.o
- .debug_info    0x00000000      0xdd7 ManualSet.o
+ .debug_info    0x00000000      0xe1f ManualSet.o
  .debug_abbrev  0x00000000      0x160 ManualSet.o
  .debug_loc     0x00000000      0x19b ManualSet.o
  .debug_aranges
                 0x00000000       0x20 ManualSet.o
  .debug_ranges  0x00000000       0x10 ManualSet.o
  .debug_line    0x00000000      0x3fd ManualSet.o
- .debug_str     0x00000000      0x49b ManualSet.o
+ .debug_str     0x00000000      0x4c6 ManualSet.o
  .comment       0x00000000       0x31 ManualSet.o
  .debug_frame   0x00000000       0x38 ManualSet.o
  .text          0x00000000        0x0 MenuStatus.o
@@ -281,14 +285,14 @@ Discarded input sections
                 0x00000000      0x12b Service.o
  .text.Service  0x00000000      0xa0a Service.o
  .bss.tempdata  0x00000000        0x4 Service.o
- .debug_info    0x00000000     0x1b22 Service.o
+ .debug_info    0x00000000     0x1b6a Service.o
  .debug_abbrev  0x00000000      0x14a Service.o
  .debug_loc     0x00000000      0x510 Service.o
  .debug_aranges
                 0x00000000       0x20 Service.o
  .debug_ranges  0x00000000       0x10 Service.o
  .debug_line    0x00000000      0x82d Service.o
- .debug_str     0x00000000      0x4a6 Service.o
+ .debug_str     0x00000000      0x4d1 Service.o
  .comment       0x00000000       0x31 Service.o
  .debug_frame   0x00000000       0x24 Service.o
  .text          0x00000000        0x0 ServiceMenu.o
@@ -656,7 +660,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x53f2
+.text           0x00000000     0x5508
  *(.vectors)
  .vectors       0x00000000       0x68 D:/Atmel/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega328p/avr5/crtatmega328p.o
                 0x00000000                __vector_default
@@ -749,190 +753,190 @@ END GROUP
                 0x000001c4       0x2c ADConverter.o
                 0x000001c4                read_adc
  .text.current_adc
-                0x000001f0       0xe2 ADConverter.o
+                0x000001f0       0xf0 ADConverter.o
                 0x000001f0                current_adc
  .text.vent_status
-                0x000002d2      0x1a4 AirCond.o
-                0x000002d2                vent_status
+                0x000002e0      0x1a4 AirCond.o
+                0x000002e0                vent_status
  .text.AutoTemp
-                0x00000476      0x19c AutoTemp.o
-                0x00000476                AutoTemp
+                0x00000484      0x19c AutoTemp.o
+                0x00000484                AutoTemp
  .text.read_dht_hum
-                0x00000612       0xa0 DHT.o
-                0x00000612                read_dht_hum
+                0x00000620       0xa0 DHT.o
+                0x00000620                read_dht_hum
  .text.dht_read
-                0x000006b2      0x1d2 DHT.o
-                0x000006b2                dht_read
- .text.pr       0x00000884       0x6a DHT.o
-                0x00000884                pr
+                0x000006c0      0x1d2 DHT.o
+                0x000006c0                dht_read
+ .text.pr       0x00000892       0x6a DHT.o
+                0x00000892                pr
  .text.EEPROM_write
-                0x000008ee       0x10 EepromDATA.o
-                0x000008ee                EEPROM_write
+                0x000008fc       0x10 EepromDATA.o
+                0x000008fc                EEPROM_write
  .text.EEPROM_read
-                0x000008fe        0xe EepromDATA.o
-                0x000008fe                EEPROM_read
+                0x0000090c        0xe EepromDATA.o
+                0x0000090c                EEPROM_read
  .text.Alarm_line
-                0x0000090c       0x80 Inputs.o
-                0x0000090c                Alarm_line
+                0x0000091a       0x80 Inputs.o
+                0x0000091a                Alarm_line
  .text.PS500_line
-                0x0000098c       0xf4 Inputs.o
-                0x0000098c                PS500_line
+                0x0000099a       0xf4 Inputs.o
+                0x0000099a                PS500_line
  .text.write_to_lcd
-                0x00000a80      0x18a LCD.o
-                0x00000a80                write_to_lcd
+                0x00000a8e      0x18a LCD.o
+                0x00000a8e                write_to_lcd
  .text.lcd_init
-                0x00000c0a       0x22 LCD.o
-                0x00000c0a                lcd_init
+                0x00000c18       0x22 LCD.o
+                0x00000c18                lcd_init
  .text.lcd_puts
-                0x00000c2c       0x2e LCD.o
-                0x00000c2c                lcd_puts
+                0x00000c3a       0x2e LCD.o
+                0x00000c3a                lcd_puts
  .text.lcd_num_to_str
-                0x00000c5a      0x130 LCD.o
-                0x00000c5a                lcd_num_to_str
- .text.meter    0x00000d8a      0x164 Led_driver.o
-                0x00000d8a                meter
- .text.status   0x00000eee      0x1c4 Led_driver.o
-                0x00000eee                status
+                0x00000c68      0x130 LCD.o
+                0x00000c68                lcd_num_to_str
+ .text.meter    0x00000d98      0x164 Led_driver.o
+                0x00000d98                meter
+ .text.status   0x00000efc      0x1c4 Led_driver.o
+                0x00000efc                status
  .text.__vector_7
-                0x000010b2       0x5e main.o
-                0x000010b2                __vector_7
+                0x000010c0       0x6a main.o
+                0x000010c0                __vector_7
  .text.__vector_11
-                0x00001110       0x2e main.o
-                0x00001110                __vector_11
- .text.main     0x0000113e      0x5ce main.o
-                0x0000113e                main
- .text.Manual   0x0000170c      0x26e Manual.o
-                0x0000170c                Manual
+                0x0000112a       0x2e main.o
+                0x0000112a                __vector_11
+ .text.main     0x00001158      0x5c2 main.o
+                0x00001158                main
+ .text.Manual   0x0000171a      0x2d4 Manual.o
+                0x0000171a                Manual
  .text.StatusBarTemp
-                0x0000197a      0x438 MenuStatus.o
-                0x0000197a                StatusBarTemp
+                0x000019ee      0x438 MenuStatus.o
+                0x000019ee                StatusBarTemp
  .text.protocol
-                0x00001db2      0x666 Omega.o
-                0x00001db2                protocol
+                0x00001e26      0x666 Omega.o
+                0x00001e26                protocol
  .text.Omega_slave
-                0x00002418      0x2ea Omega.o
-                0x00002418                Omega_slave
- .text.start    0x00002702       0x74 Omega.o
-                0x00002702                start
- .text.registr  0x00002776      0x254 Registr.o
-                0x00002776                registr
+                0x0000248c      0x2e6 Omega.o
+                0x0000248c                Omega_slave
+ .text.start    0x00002772      0x11a Omega.o
+                0x00002772                start
+ .text.registr  0x0000288c      0x254 Registr.o
+                0x0000288c                registr
  .text.ServiceMenu
-                0x000029ca     0x18c4 ServiceMenu.o
-                0x000029ca                ServiceMenu
- .text.volts    0x0000428e      0x1ae Voltmeter.o
-                0x0000428e                volts
+                0x00002ae0     0x18c4 ServiceMenu.o
+                0x00002ae0                ServiceMenu
+ .text.volts    0x000043a4      0x1ae Voltmeter.o
+                0x000043a4                volts
  .text.avr-libc
-                0x0000443c      0x6fa d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libprintf_flt.a(vfprintf_flt.o)
-                0x0000443c                vfprintf
+                0x00004552      0x6fa d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libprintf_flt.a(vfprintf_flt.o)
+                0x00004552                vfprintf
  .text.libgcc.div
-                0x00004b36       0x28 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
-                0x00004b36                _div
-                0x00004b36                __divmodhi4
- .text.libgcc   0x00004b5e        0xc d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
-                0x00004b5e                __tablejump2__
+                0x00004c4c       0x28 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
+                0x00004c4c                _div
+                0x00004c4c                __divmodhi4
+ .text.libgcc   0x00004c74        0xc d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+                0x00004c74                __tablejump2__
  .text.libgcc.mul
-                0x00004b6a       0x1e d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
-                0x00004b6a                __umulhisi3
+                0x00004c80       0x1e d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
+                0x00004c80                __umulhisi3
  .text.libgcc.prologue
-                0x00004b88       0x38 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_prologue.o)
-                0x00004b88                __prologue_saves__
+                0x00004c9e       0x38 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_prologue.o)
+                0x00004c9e                __prologue_saves__
  .text.libgcc.prologue
-                0x00004bc0       0x36 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_epilogue.o)
-                0x00004bc0                __epilogue_restores__
+                0x00004cd6       0x36 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_epilogue.o)
+                0x00004cd6                __epilogue_restores__
  .text.libgcc.div
-                0x00004bf6       0x28 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
-                0x00004bf6                __udivmodhi4
+                0x00004d0c       0x28 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
+                0x00004d0c                __udivmodhi4
  .text.avr-libc.fplib
-                0x00004c1e        0xe d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3.o)
-                0x00004c1e                __subsf3
-                0x00004c20                __addsf3
+                0x00004d34        0xe d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3.o)
+                0x00004d34                __subsf3
+                0x00004d36                __addsf3
  .text.avr-libc.fplib
-                0x00004c2c       0xcc d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3x.o)
-                0x00004c4e                __addsf3x
+                0x00004d42       0xcc d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3x.o)
+                0x00004d64                __addsf3x
  .text.avr-libc.fplib
-                0x00004cf8        0xa d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(cmpsf2.o)
-                0x00004cf8                __nesf2
-                0x00004cf8                __eqsf2
-                0x00004cf8                __cmpsf2
-                0x00004cf8                __ltsf2
-                0x00004cf8                __lesf2
+                0x00004e0e        0xa d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(cmpsf2.o)
+                0x00004e0e                __nesf2
+                0x00004e0e                __eqsf2
+                0x00004e0e                __cmpsf2
+                0x00004e0e                __ltsf2
+                0x00004e0e                __lesf2
  .text.avr-libc.fplib
-                0x00004d02        0x8 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3.o)
-                0x00004d02                __divsf3
+                0x00004e18        0x8 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3.o)
+                0x00004e18                __divsf3
  .text.avr-libc.fplib
-                0x00004d0a       0xdc d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3x.o)
-                0x00004d2a                __divsf3x
-                0x00004d30                __divsf3_pse
+                0x00004e20       0xdc d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3x.o)
+                0x00004e40                __divsf3x
+                0x00004e46                __divsf3_pse
  .text.avr-libc.fplib
-                0x00004de6        0xe d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixsfsi.o)
-                0x00004de6                __fixsfsi
+                0x00004efc        0xe d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixsfsi.o)
+                0x00004efc                __fixsfsi
  .text.avr-libc.fplib
-                0x00004df4       0x5e d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
-                0x00004df4                __fixunssfsi
+                0x00004f0a       0x5e d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
+                0x00004f0a                __fixunssfsi
  .text.avr-libc.fplib
-                0x00004e52       0x7a d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(floatsisf.o)
-                0x00004e52                __floatunsisf
-                0x00004e56                __floatsisf
+                0x00004f68       0x7a d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(floatsisf.o)
+                0x00004f68                __floatunsisf
+                0x00004f6c                __floatsisf
  .text.avr-libc.fplib
-                0x00004ecc       0x48 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_cmp.o)
-                0x00004ecc                __fp_cmp
+                0x00004fe2       0x48 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_cmp.o)
+                0x00004fe2                __fp_cmp
  .text.avr-libc.fplib
-                0x00004f14        0xc d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_inf.o)
-                0x00004f14                __fp_inf
+                0x0000502a        0xc d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_inf.o)
+                0x0000502a                __fp_inf
  .text.avr-libc.fplib
-                0x00004f20        0x6 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_nan.o)
-                0x00004f20                __fp_nan
+                0x00005036        0x6 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_nan.o)
+                0x00005036                __fp_nan
  .text.avr-libc.fplib
-                0x00004f26        0xe d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
-                0x00004f26                __fp_pscA
+                0x0000503c        0xe d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
+                0x0000503c                __fp_pscA
  .text.avr-libc.fplib
-                0x00004f34        0xe d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
-                0x00004f34                __fp_pscB
+                0x0000504a        0xe d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
+                0x0000504a                __fp_pscB
  .text.avr-libc.fplib
-                0x00004f42       0x22 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_round.o)
-                0x00004f42                __fp_round
+                0x00005058       0x22 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_round.o)
+                0x00005058                __fp_round
  .text.avr-libc.fplib
-                0x00004f64       0x44 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_split3.o)
-                0x00004f64                __fp_split3
-                0x00004f74                __fp_splitA
+                0x0000507a       0x44 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_split3.o)
+                0x0000507a                __fp_split3
+                0x0000508a                __fp_splitA
  .text.avr-libc.fplib
-                0x00004fa8        0xe d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_zero.o)
-                0x00004fa8                __fp_zero
-                0x00004faa                __fp_szero
+                0x000050be        0xe d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_zero.o)
+                0x000050be                __fp_zero
+                0x000050c0                __fp_szero
  .text.avr-libc.fplib
-                0x00004fb6        0xa d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(gesf2.o)
-                0x00004fb6                __gesf2
-                0x00004fb6                __gtsf2
+                0x000050cc        0xa d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(gesf2.o)
+                0x000050cc                __gesf2
+                0x000050cc                __gtsf2
  .text.avr-libc.fplib
-                0x00004fc0        0x8 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3.o)
-                0x00004fc0                __mulsf3
+                0x000050d6        0x8 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3.o)
+                0x000050d6                __mulsf3
  .text.avr-libc.fplib
-                0x00004fc8       0xd2 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
-                0x00004fe6                __mulsf3x
-                0x00004fec                __mulsf3_pse
+                0x000050de       0xd2 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
+                0x000050fc                __mulsf3x
+                0x00005102                __mulsf3_pse
  .text.avr-libc
-                0x0000509a      0x1b0 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ftoa_engine.o)
-                0x0000509a                __ftoa_engine
+                0x000051b0      0x1b0 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ftoa_engine.o)
+                0x000051b0                __ftoa_engine
  .text.avr-libc
-                0x0000524a       0x16 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
-                0x0000524a                strnlen_P
+                0x00005360       0x16 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+                0x00005360                strnlen_P
  .text.avr-libc
-                0x00005260       0x16 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen.o)
-                0x00005260                strnlen
+                0x00005376       0x16 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen.o)
+                0x00005376                strnlen
  .text.avr-libc
-                0x00005276       0x78 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(fputc.o)
-                0x00005276                fputc
+                0x0000538c       0x78 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(fputc.o)
+                0x0000538c                fputc
  .text.avr-libc
-                0x000052ee       0x44 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(sprintf.o)
-                0x000052ee                sprintf
+                0x00005404       0x44 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(sprintf.o)
+                0x00005404                sprintf
  .text.avr-libc
-                0x00005332       0xbc d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
-                0x00005332                __ultoa_invert
-                0x000053ee                . = ALIGN (0x2)
+                0x00005448       0xbc d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+                0x00005448                __ultoa_invert
+                0x00005504                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000053ee        0x0 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x000053ee                _exit
-                0x000053ee                exit
+ .fini9         0x00005504        0x0 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00005504                _exit
+                0x00005504                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -951,11 +955,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000053ee        0x4 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00005504        0x4 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000053f2                _etext = .
+                0x00005508                _etext = .
 
-.data           0x00800100      0x27a load address 0x000053f2
+.data           0x00800100      0x27a load address 0x00005508
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -985,7 +989,7 @@ END GROUP
                 0x0080037a                _edata = .
                 0x0080037a                PROVIDE (__data_end, .)
 
-.bss            0x0080037a      0x21e
+.bss            0x0080037a      0x223
                 0x0080037a                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
@@ -1015,7 +1019,7 @@ END GROUP
  .bss.menu_t    0x0080038b        0x2 ServiceMenu.o
                 0x0080038b                menu_t
  *(COMMON)
- COMMON         0x0080038d      0x20b ADConverter.o
+ COMMON         0x0080038d      0x210 ADConverter.o
                 0x0080038d                hum
                 0x0080038e                tmp
                 0x00800390                tct
@@ -1044,85 +1048,89 @@ END GROUP
                 0x008003c9                v_curr
                 0x008003cb                flag2
                 0x008003cc                volt_3
-                0x008003ce                active
-                0x008003d0                voltage
-                0x008003d2                adress_t
-                0x008003d4                adres_call
-                0x008003d6                lvl_1
-                0x008003d7                blink
-                0x008003d9                norm
-                0x008003ed                mode
-                0x008003ee                dh1
-                0x008003f0                delta_H
-                0x008003f4                test
-                0x008003f6                device_ID
-                0x008003f8                flag1
-                0x008003f9                bit_flag
-                0x008003fa                low
-                0x008003fc                v
-                0x008003fe                timer_M
-                0x00800400                hd
-                0x00800404                tm
-                0x00800408                faza
-                0x0080040a                volts_level
-                0x0080040b                faza_fall
-                0x0080040c                al
-                0x0080040d                tt
-                0x0080040f                w_1
-                0x00800411                peak
-                0x00800413                counter
-                0x00800415                regim_fall
-                0x00800416                data
-                0x0080041b                mn_time
-                0x0080041d                lvl_2
-                0x0080041e                interval
-                0x00800420                milis
-                0x00800422                external
-                0x00800423                d
-                0x00800425                directive
-                0x00800427                answer
-                0x00800429                adress
-                0x0080042b                w_curr
-                0x0080042d                hi_flag
-                0x0080042e                delta_T
-                0x00800432                lvl_3
-                0x00800433                past2
-                0x00800435                frame
-                0x00800437                check_sum
-                0x00800439                hum_alarm
-                0x0080043a                rd
-                0x0080043e                u_curr
-                0x00800440                past
-                0x00800442                timer_U
-                0x00800444                faza_fall_1
-                0x00800445                stats
-                0x00800447                delta_F
-                0x00800449                stat
-                0x0080045d                timer_FLV
-                0x0080045f                detect
-                0x00800581                timing
-                0x00800583                dt
-                0x00800587                flag3
-                0x00800588                volt_1
-                0x0080058a                arm
-                0x0080058b                faza_fall_2
-                0x0080058c                time_loop
-                0x0080058d                receivemode
-                0x0080058e                faza_counter
-                0x00800590                u
-                0x00800592                dt1
-                0x00800594                millis
-                0x00800596                regim
-                0x00800597                service
-                0x00800598                PROVIDE (__bss_end, .)
-                0x000053f2                __data_load_start = LOADADDR (.data)
-                0x0000566c                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x008003ce                run_relay
+                0x008003cf                active
+                0x008003d1                voltage
+                0x008003d3                adress_t
+                0x008003d5                adres_call
+                0x008003d7                lvl_1
+                0x008003d8                pwr_flag
+                0x008003d9                blink
+                0x008003db                norm
+                0x008003ef                mode
+                0x008003f0                dh1
+                0x008003f2                delta_H
+                0x008003f6                test
+                0x008003f8                device_ID
+                0x008003fa                flag1
+                0x008003fb                bit_flag
+                0x008003fc                low
+                0x008003fe                v
+                0x00800400                timer_M
+                0x00800402                hd
+                0x00800406                tm
+                0x0080040a                faza
+                0x0080040c                volts_level
+                0x0080040d                faza_fall
+                0x0080040e                al
+                0x0080040f                tt
+                0x00800411                w_1
+                0x00800413                pwm_finish
+                0x00800414                peak
+                0x00800416                counter
+                0x00800418                regim_fall
+                0x00800419                data
+                0x0080041e                mn_time
+                0x00800420                lvl_2
+                0x00800421                interval
+                0x00800423                milis
+                0x00800425                external
+                0x00800426                d
+                0x00800428                directive
+                0x0080042a                answer
+                0x0080042c                adress
+                0x0080042e                w_curr
+                0x00800430                hi_flag
+                0x00800431                blink_detect
+                0x00800433                delta_T
+                0x00800437                lvl_3
+                0x00800438                past2
+                0x0080043a                frame
+                0x0080043c                check_sum
+                0x0080043e                hum_alarm
+                0x0080043f                rd
+                0x00800443                u_curr
+                0x00800445                past
+                0x00800447                timer_U
+                0x00800449                faza_fall_1
+                0x0080044a                stats
+                0x0080044c                delta_F
+                0x0080044e                stat
+                0x00800462                timer_FLV
+                0x00800464                detect
+                0x00800586                timing
+                0x00800588                dt
+                0x0080058c                flag3
+                0x0080058d                volt_1
+                0x0080058f                arm
+                0x00800590                faza_fall_2
+                0x00800591                time_loop
+                0x00800592                receivemode
+                0x00800593                faza_counter
+                0x00800595                u
+                0x00800597                dt1
+                0x00800599                millis
+                0x0080059b                regim
+                0x0080059c                service
+                0x0080059d                PROVIDE (__bss_end, .)
+                0x00005508                __data_load_start = LOADADDR (.data)
+                0x00005782                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800598        0x0
+.noinit         0x0080059d        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x00800598                _end = .
+                0x0080059d                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -1241,62 +1249,62 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0xadf7
+.debug_info     0x00000000     0xb2c1
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5f4 D:/Atmel/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_info    0x000005f4      0x8ec ADConverter.o
- .debug_info    0x00000ee0      0x93e AirCond.o
- .debug_info    0x0000181e      0xb5d AutoTemp.o
- .debug_info    0x0000237b      0xa93 DHT.o
- .debug_info    0x00002e0e      0x8bd EepromDATA.o
- .debug_info    0x000036cb      0x95b Inputs.o
- .debug_info    0x00004026      0xd96 LCD.o
- .debug_info    0x00004dbc      0x9a3 Led_driver.o
- .debug_info    0x0000575f      0xf1b main.o
- .debug_info    0x0000667a      0xc77 Manual.o
- .debug_info    0x000072f1      0xc3f MenuStatus.o
- .debug_info    0x00007f30      0x95a Omega.o
- .debug_info    0x0000888a      0xb9c Registr.o
- .debug_info    0x00009426      0xf84 ServiceMenu.o
- .debug_info    0x0000a3aa      0xa4d Voltmeter.o
+ .debug_info    0x000005f4      0x947 ADConverter.o
+ .debug_info    0x00000f3b      0x986 AirCond.o
+ .debug_info    0x000018c1      0xba5 AutoTemp.o
+ .debug_info    0x00002466      0xadb DHT.o
+ .debug_info    0x00002f41      0x905 EepromDATA.o
+ .debug_info    0x00003846      0x9a3 Inputs.o
+ .debug_info    0x000041e9      0xdde LCD.o
+ .debug_info    0x00004fc7      0x9eb Led_driver.o
+ .debug_info    0x000059b2      0xf3d main.o
+ .debug_info    0x000068ef      0xd1c Manual.o
+ .debug_info    0x0000760b      0xc87 MenuStatus.o
+ .debug_info    0x00008292      0x9ea Omega.o
+ .debug_info    0x00008c7c      0xbe4 Registr.o
+ .debug_info    0x00009860      0xfcc ServiceMenu.o
+ .debug_info    0x0000a82c      0xa95 Voltmeter.o
 
-.debug_abbrev   0x00000000     0x1735
+.debug_abbrev   0x00000000     0x1737
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x5a2 D:/Atmel/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_abbrev  0x000005a2      0x104 ADConverter.o
- .debug_abbrev  0x000006a6       0xeb AirCond.o
- .debug_abbrev  0x00000791      0x146 AutoTemp.o
- .debug_abbrev  0x000008d7      0x1ca DHT.o
- .debug_abbrev  0x00000aa1       0xd7 EepromDATA.o
- .debug_abbrev  0x00000b78       0xe7 Inputs.o
- .debug_abbrev  0x00000c5f      0x192 LCD.o
- .debug_abbrev  0x00000df1      0x107 Led_driver.o
- .debug_abbrev  0x00000ef8      0x17d main.o
- .debug_abbrev  0x00001075      0x13b Manual.o
- .debug_abbrev  0x000011b0      0x19b MenuStatus.o
- .debug_abbrev  0x0000134b      0x110 Omega.o
- .debug_abbrev  0x0000145b       0xdf Registr.o
- .debug_abbrev  0x0000153a      0x11f ServiceMenu.o
- .debug_abbrev  0x00001659       0xdc Voltmeter.o
+ .debug_abbrev  0x000005a2      0x106 ADConverter.o
+ .debug_abbrev  0x000006a8       0xeb AirCond.o
+ .debug_abbrev  0x00000793      0x146 AutoTemp.o
+ .debug_abbrev  0x000008d9      0x1ca DHT.o
+ .debug_abbrev  0x00000aa3       0xd7 EepromDATA.o
+ .debug_abbrev  0x00000b7a       0xe7 Inputs.o
+ .debug_abbrev  0x00000c61      0x192 LCD.o
+ .debug_abbrev  0x00000df3      0x107 Led_driver.o
+ .debug_abbrev  0x00000efa      0x17d main.o
+ .debug_abbrev  0x00001077      0x13b Manual.o
+ .debug_abbrev  0x000011b2      0x19b MenuStatus.o
+ .debug_abbrev  0x0000134d      0x110 Omega.o
+ .debug_abbrev  0x0000145d       0xdf Registr.o
+ .debug_abbrev  0x0000153c      0x11f ServiceMenu.o
+ .debug_abbrev  0x0000165b       0xdc Voltmeter.o
 
-.debug_line     0x00000000     0x3dea
+.debug_line     0x00000000     0x3ea5
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x133 D:/Atmel/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_line    0x00000133      0x1a6 ADConverter.o
- .debug_line    0x000002d9      0x1f7 AirCond.o
- .debug_line    0x000004d0      0x2a5 AutoTemp.o
- .debug_line    0x00000775      0x2f0 DHT.o
- .debug_line    0x00000a65      0x13f EepromDATA.o
- .debug_line    0x00000ba4      0x200 Inputs.o
- .debug_line    0x00000da4      0x2e3 LCD.o
- .debug_line    0x00001087      0x2f5 Led_driver.o
- .debug_line    0x0000137c      0x5c7 main.o
- .debug_line    0x00001943      0x380 Manual.o
- .debug_line    0x00001cc3      0x467 MenuStatus.o
- .debug_line    0x0000212a      0x78a Omega.o
- .debug_line    0x000028b4      0x47b Registr.o
- .debug_line    0x00002d2f      0xf36 ServiceMenu.o
- .debug_line    0x00003c65      0x185 Voltmeter.o
+ .debug_line    0x00000133      0x1ac ADConverter.o
+ .debug_line    0x000002df      0x1f7 AirCond.o
+ .debug_line    0x000004d6      0x2a5 AutoTemp.o
+ .debug_line    0x0000077b      0x2f0 DHT.o
+ .debug_line    0x00000a6b      0x13f EepromDATA.o
+ .debug_line    0x00000baa      0x200 Inputs.o
+ .debug_line    0x00000daa      0x2e3 LCD.o
+ .debug_line    0x0000108d      0x2f5 Led_driver.o
+ .debug_line    0x00001382      0x5d3 main.o
+ .debug_line    0x00001955      0x3c6 Manual.o
+ .debug_line    0x00001d1b      0x467 MenuStatus.o
+ .debug_line    0x00002182      0x7ed Omega.o
+ .debug_line    0x0000296f      0x47b Registr.o
+ .debug_line    0x00002dea      0xf36 ServiceMenu.o
+ .debug_line    0x00003d20      0x185 Voltmeter.o
 
 .debug_frame    0x00000000      0x4c8
  *(.debug_frame)
@@ -1316,41 +1324,41 @@ END GROUP
  .debug_frame   0x0000041c       0x74 ServiceMenu.o
  .debug_frame   0x00000490       0x38 Voltmeter.o
 
-.debug_str      0x00000000      0x886
+.debug_str      0x00000000      0x8a4
  *(.debug_str)
  .debug_str     0x00000000      0x208 D:/Atmel/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_str     0x00000208      0x3db ADConverter.o
-                                0x426 (size before relaxing)
- .debug_str     0x000005e3       0x3c AirCond.o
-                                0x431 (size before relaxing)
- .debug_str     0x0000061f       0x88 AutoTemp.o
-                                0x485 (size before relaxing)
- .debug_str     0x000006a7       0x38 DHT.o
-                                0x48e (size before relaxing)
- .debug_str     0x000006df       0x3c EepromDATA.o
-                                0x43a (size before relaxing)
- .debug_str     0x0000071b       0x24 Inputs.o
-                                0x42a (size before relaxing)
- .debug_str     0x0000073f       0x30 LCD.o
-                                0x48e (size before relaxing)
- .debug_str     0x0000076f       0x18 Led_driver.o
-                                0x41c (size before relaxing)
- .debug_str     0x00000787       0x64 main.o
-                                0x553 (size before relaxing)
- .debug_str     0x000007eb       0x1b Manual.o
-                                0x48e (size before relaxing)
- .debug_str     0x00000806       0x12 MenuStatus.o
-                                0x487 (size before relaxing)
- .debug_str     0x00000818       0x16 Omega.o
-                                0x42e (size before relaxing)
- .debug_str     0x0000082e       0x2d Registr.o
-                                0x42a (size before relaxing)
- .debug_str     0x0000085b       0x1a ServiceMenu.o
-                                0x466 (size before relaxing)
- .debug_str     0x00000875       0x11 Voltmeter.o
-                                0x43d (size before relaxing)
+ .debug_str     0x00000208      0x3f9 ADConverter.o
+                                0x451 (size before relaxing)
+ .debug_str     0x00000601       0x3c AirCond.o
+                                0x45c (size before relaxing)
+ .debug_str     0x0000063d       0x88 AutoTemp.o
+                                0x4b0 (size before relaxing)
+ .debug_str     0x000006c5       0x38 DHT.o
+                                0x4b9 (size before relaxing)
+ .debug_str     0x000006fd       0x3c EepromDATA.o
+                                0x465 (size before relaxing)
+ .debug_str     0x00000739       0x24 Inputs.o
+                                0x455 (size before relaxing)
+ .debug_str     0x0000075d       0x30 LCD.o
+                                0x4b9 (size before relaxing)
+ .debug_str     0x0000078d       0x18 Led_driver.o
+                                0x447 (size before relaxing)
+ .debug_str     0x000007a5       0x64 main.o
+                                0x57e (size before relaxing)
+ .debug_str     0x00000809       0x1b Manual.o
+                                0x4b9 (size before relaxing)
+ .debug_str     0x00000824       0x12 MenuStatus.o
+                                0x4b2 (size before relaxing)
+ .debug_str     0x00000836       0x16 Omega.o
+                                0x459 (size before relaxing)
+ .debug_str     0x0000084c       0x2d Registr.o
+                                0x455 (size before relaxing)
+ .debug_str     0x00000879       0x1a ServiceMenu.o
+                                0x491 (size before relaxing)
+ .debug_str     0x00000893       0x11 Voltmeter.o
+                                0x468 (size before relaxing)
 
-.debug_loc      0x00000000      0xe8a
+.debug_loc      0x00000000      0xed2
  *(.debug_loc)
  .debug_loc     0x00000000       0xba ADConverter.o
  .debug_loc     0x000000ba       0x56 AirCond.o
@@ -1360,12 +1368,12 @@ END GROUP
  .debug_loc     0x000004ab      0x251 LCD.o
  .debug_loc     0x000006fc       0x14 Led_driver.o
  .debug_loc     0x00000710      0x234 main.o
- .debug_loc     0x00000944      0x168 Manual.o
- .debug_loc     0x00000aac      0x13f MenuStatus.o
- .debug_loc     0x00000beb       0x2f Omega.o
- .debug_loc     0x00000c1a       0xf4 Registr.o
- .debug_loc     0x00000d0e      0x133 ServiceMenu.o
- .debug_loc     0x00000e41       0x49 Voltmeter.o
+ .debug_loc     0x00000944      0x1b0 Manual.o
+ .debug_loc     0x00000af4      0x13f MenuStatus.o
+ .debug_loc     0x00000c33       0x2f Omega.o
+ .debug_loc     0x00000c62       0xf4 Registr.o
+ .debug_loc     0x00000d56      0x133 ServiceMenu.o
+ .debug_loc     0x00000e89       0x49 Voltmeter.o
 
 .debug_macinfo
  *(.debug_macinfo)

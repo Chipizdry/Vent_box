@@ -9,7 +9,7 @@
  void Omega_slave() {
  
  
- PORTD|= (1 <<PD1); // Вспомогательная строб-индикация состояния 
+// PORTD|= (1 <<PD1); // Вспомогательная строб-индикация состояния 
  stats=(PINB & 0b0000001); //Чтение состояния входа
 
  if (( stats ==1)&&(bit_flag==0))
@@ -68,7 +68,7 @@
 		 low=low+1;
 	 }
 
-	 PORTD &=~(1 <<PD1);  // Вспомогательная строб-индикация состояния 
+//	 PORTD &=~(1 <<PD1);  // Вспомогательная строб-индикация состояния 
 	 
 	 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	 
@@ -227,30 +227,33 @@
  }
 
 void start(void){
-if(soft_start==1){
-
- blink=blink+1;	
- if(blink<39000){tk=blink/75;}
-// if((blink>=15500)&&(blink<31000)){tk=blink/155;}	 
-// if((blink>=31000)&&(blink<79000)){tk=blink/155;}	
-	 
-peak=0;	 
-
-peak=read_adc(6);
-/*
-if((peak>=(510-tk))&&(peak<=(514+tk))){
-run_status=10;
-RN1;	
-}
-*/
-if((peak>=500)&&(peak<=(524))){
-	run_status=10;
-	RN1;
 	
+if(pwm_finish==0)
+
+  {
 	
-}
-else{RN0;}
+    blink=blink+1;	
+	if(blink<15748){tk=blink/196;}
 
+    peak=0;	
+    if(pwr_flag==0){peak=read_adc(6);}
 
-}
+    if((peak>=500)&&(peak<=(524))&&(pwr_flag==0)&&((blink-blink_detect)>68))
+	{
+	blink_detect=blink;
+	pwr_flag=1;
+	run_status=tk;
+	RN1;	
+    }
+    
+    if(pwr_flag==1)
+	{
+	if(run_status>0){run_status--;}
+	if(run_status==0){RN0;pwr_flag=0;}
+	}
+
+    else{RN0;}
+	if(blink>=15748){pwm_finish=1;RN1;}	
+ }
+
 }

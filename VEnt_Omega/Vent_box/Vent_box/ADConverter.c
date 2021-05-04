@@ -20,8 +20,8 @@ int current_adc ()
 	v_curr=0;
 	w_curr=0;
 	
-	
-	for(int i=1;i<150;i++)
+fire=read_adc(0); //Чтение состояния входа ПОЖАР	
+	for(int i=1;i<120;i++)
 	{
 		volt_1=(int) read_adc(3);
 		
