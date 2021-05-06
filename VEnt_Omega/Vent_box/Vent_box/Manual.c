@@ -56,6 +56,8 @@ void Manual()
 			 		 
 	 if((preority==0)&&(external==0))
 		{ 
+			lcd_gotoxy(0,0);
+			lcd_puts("PyАЅo№ Ё©CK іeЅї"); //Ручной пуск вентилятора
 		   arm=0;
 		   working=1;
 		   autorun=1;
@@ -116,9 +118,12 @@ void Manual()
 		if((preority==0)&&(external==0))
 		{
 			
-			lcd_gotoxy(0,0);
-			lcd_puts("PyАЅo№ Ё©CK іeЅї"); //Ручной пуск вентилятора	
-			StatusBarTemp();
+			
+			if(soft_start==0){
+				lcd_gotoxy(0,0);
+				lcd_puts("PyАЅo№ Ё©CK іeЅї"); //Ручной пуск вентилятора
+				StatusBarTemp();}
+			
 		}
 		
 		if((preority==2)||(external==1))
