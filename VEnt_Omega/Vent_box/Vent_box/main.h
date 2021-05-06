@@ -82,6 +82,7 @@ int peak; //Пиковое напряжение пуска
 int tk; //коэффициент подачи питания
 int blink; // переменная состояния задержки пуска
 unsigned char soft_start; //Активация плавного пуска 
+int pwr_count;//обратный отсчёт до старта 
 int pwr;  //Питание НОРМА 
 unsigned char preority;
 int preasure;//состояние входа PS

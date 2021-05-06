@@ -227,6 +227,7 @@
  }
 
 void start(void){
+	/*
 if(soft_start==1)
    {
   if(pwm_finish==0)
@@ -234,12 +235,12 @@ if(soft_start==1)
   {
 	
     blink=blink+1;	
-	if(blink<15748){tk=blink/200;}
+	if(blink<31496){tk=blink/400;}
 
     peak=0;	
     if(pwr_flag==0){peak=read_adc(6);}
 
-    if((peak>=500)&&(peak<=(524))&&(pwr_flag==0)&&((blink-blink_detect)>69))
+    if((peak>=495)&&(peak<=(529))&&(pwr_flag==0)&&((blink-blink_detect)>69))
 	{
 	blink_detect=blink;
 	pwr_flag=1;
@@ -254,7 +255,50 @@ if(soft_start==1)
 	}
 
     else{RN0;}
-	if(blink>=15748){pwm_finish=1;RN1;}	
+	if(blink>=31496){pwm_finish=1;RN1;}	
  }
 	}
+	
+	*/
+	if(soft_start==1)
+	{
+		if(pwm_finish==0)
+
+		{
+			
+			blink=blink+1;
+			if(blink<31496){tk=blink/400;}
+
+			peak=0;
+			if(pwr_flag==0){peak=read_adc(6);}
+
+			if((peak>=505)&&(peak<=(516))&&(pwr_flag==0)&&((blink-blink_detect)>72))
+			{
+				blink_detect=blink;
+				pwr_flag=1;
+				run_status=0;
+				RN0;
+				//run_status=tk;
+				//RN1;
+			}
+			
+			if(pwr_flag==1)
+			{   
+				run_status++;
+				pwr_count=79-tk;
+				
+				//if(run_status>0){run_status=78-tk;}
+				if(run_status==pwr_count){RN1;}
+				if(run_status>73){pwr_flag=0;};	
+			}
+
+			//else{RN0;}
+			if(blink>=31496){pwm_finish=1;RN1;}
+		}
+	}
+	
+	
+	
+	
+	
 }
