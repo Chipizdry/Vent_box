@@ -267,31 +267,29 @@ if(soft_start==1)
 		{
 			
 			blink=blink+1;
-			if(blink<47244){tk=blink/600;}
+			if(blink<7874){tk=blink/100;}
 
 			peak=0;
 			if(pwr_flag==0){peak=read_adc(6);}
 
-			if((peak>=505)&&(peak<=(516))&&(pwr_flag==0)&&((blink-blink_detect)>72))
+			if((peak>=502)&&(peak<=522)&&(pwr_flag==0)&&((blink-blink_detect)>75))
 			{
 				blink_detect=blink;
 				pwr_flag=1;
 				run_status=0;
+				latch_1=0;
 				RN0;
-				//run_status=tk;
-				//RN1;
 			}
 			
 			if(pwr_flag==1)
 			{   
 				run_status++;
 				pwr_count=79-tk;
-				if(run_status==pwr_count){RN1;}
+				if((run_status==pwr_count)&&(latch_1==0)){RN1;latch_1=1;}
 				if(run_status>75){pwr_flag=0;};	
 			}
 
-			//else{RN0;}
-			if(blink>=47244){pwm_finish=1;RN1;}
+			if(blink>=5874){pwm_finish=1;RN1;}
 		}
 	}
 	

@@ -61,6 +61,8 @@ void Manual()
 		   arm=0;
 		   working=1;
 		   autorun=1;
+		   blink=0;
+		   blink_detect=0;
 		   soft_start=1;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		   pwm_finish=0;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		  // RN1;
@@ -104,7 +106,7 @@ void Manual()
 		arm=0;
 		lcd_gotoxy(0, 0);
 		lcd_puts("Py¿Ωoπ PE£•M    "); 
-		StatusBarTemp();
+		//StatusBarTemp();
 		
     	_delay_ms(20);
 		autorun=0;

@@ -162,9 +162,10 @@ J0;
     while (1) 
 	
   {
+	if(soft_start==0){ 
 	current_adc();
 	Alarm_line();
-    PS500_line();
+    PS500_line();    }
 	#if(VENT_SYSTEM==1)
 	current_adc();
 	meter();
@@ -225,6 +226,7 @@ J0;
 		{
 			
 			J1;
+			PIND|=0b01000000;//Подсветка дисплея 
 			regim++;
 			flag=1;
 			arm =0;

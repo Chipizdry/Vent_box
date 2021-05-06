@@ -77,6 +77,7 @@ int run_status; //флаг подачи питания
 unsigned char pwr_flag; // PWM в активном состоянии 
 unsigned char pwm_finish; //флаг завершения разгона 
 unsigned char run_relay; //флаг переключения на постоянку
+unsigned char latch_1; //Защёлка запуска подачи еденицы
 int blink_detect;
 int peak; //Пиковое напряжение пуска
 int tk; //коэффициент подачи питания
