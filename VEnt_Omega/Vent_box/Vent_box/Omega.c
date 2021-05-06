@@ -267,7 +267,7 @@ if(soft_start==1)
 		{
 			
 			blink=blink+1;
-			if(blink<31496){tk=blink/400;}
+			if(blink<47244){tk=blink/600;}
 
 			peak=0;
 			if(pwr_flag==0){peak=read_adc(6);}
@@ -286,14 +286,12 @@ if(soft_start==1)
 			{   
 				run_status++;
 				pwr_count=79-tk;
-				
-				//if(run_status>0){run_status=78-tk;}
 				if(run_status==pwr_count){RN1;}
-				if(run_status>73){pwr_flag=0;};	
+				if(run_status>75){pwr_flag=0;};	
 			}
 
 			//else{RN0;}
-			if(blink>=31496){pwm_finish=1;RN1;}
+			if(blink>=47244){pwm_finish=1;RN1;}
 		}
 	}
 	

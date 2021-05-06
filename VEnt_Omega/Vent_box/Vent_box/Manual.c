@@ -115,7 +115,7 @@ void Manual()
 		
 		if((preority==0)&&(external==0))
 		{
-			//regim_fall=0;
+			
 			lcd_gotoxy(0,0);
 			lcd_puts("PyАЅo№ Ё©CK іeЅї"); //Ручной пуск вентилятора	
 			StatusBarTemp();
