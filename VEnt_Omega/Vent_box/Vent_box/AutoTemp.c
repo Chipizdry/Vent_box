@@ -18,13 +18,18 @@ if((preority==0)&&(external==0))
 {
 		
 	if((temp_alarm==1)||(hum_alarm==1)){
-		RN1;
+	 if(run_auto_relay==0)	{soft_start=1;}
+		if((pwm_finish==1)&&(run_relay==0)){soft_start=0;blink=0;run_relay=1;RN1;}//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		//RN1;
 		lcd_gotoxy(0, 0);
 		lcd_puts("Pa²o¿a ³e½¿-pa  ");	
 		autorun=1;
 	}
 	
+	
 	if((temp_alarm==0)&&(hum_alarm==0)){
+	   soft_start=0;
+	   run_auto_relay=0;
 		RN0;
 		lcd_gotoxy(0, 0);
 		lcd_puts("ABTO   PE£¥M    ");
@@ -54,13 +59,18 @@ if(preority==1)
 {
 	
 	if((temp_alarm==1)||(hum_alarm==1)){
-		RN1;
+		 if(run_auto_relay==0)	{soft_start=1;}
+		 if((pwm_finish==1)&&(run_relay==0)){soft_start=0;blink=0;run_relay=1;RN1;}//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		//RN1;
 		lcd_gotoxy(0, 0);
 		lcd_puts("Pa²o¿a ³e½¿-pa  ");
 		autorun=1;
 	}
 	
 	if((temp_alarm==0)&&(hum_alarm==0)){
+		soft_start=0;////////////////////////////////////////////////////
+		run_auto_relay=0;//////////////////////////////////////////////////
+		run_relay=0;////////////////////////////////////////////////////
 		RN0;
 		lcd_gotoxy(0, 0);
 		lcd_puts("ABTO   PE£¥M    ");

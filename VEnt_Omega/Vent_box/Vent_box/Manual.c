@@ -100,8 +100,8 @@ void Manual()
 	if((arm==1)&&(PINB & 0b0010000)&&(working==1) )//Кнопка отпущена , вентилятор отключен
 	
 	  {
-		  run_relay=0;
-		  RN0;
+		 run_relay=0;
+		 RN0;
 		working=0;
 		arm=0;
 		lcd_gotoxy(0, 0);
