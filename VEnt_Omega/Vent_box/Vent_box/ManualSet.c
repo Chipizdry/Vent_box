@@ -26,9 +26,7 @@ void ManualSet()
 	 if((preority==0)&&(technic==0))
 	 {  
 		
-		// pr();
 		 volts();
-		
 		//MenuStatus();
 	 }
 	 
@@ -37,8 +35,6 @@ void ManualSet()
 	 {
 		 lcd_gotoxy(0, 0);
 		 lcd_puts("PyАЅo№ PEЈҐM    ");// Ручной режим 
-		 
-		
 		 lcd_gotoxy(0,1);
 		 lcd_puts("SIGNAL LINES ERR");
 	 }
@@ -54,11 +50,10 @@ void ManualSet()
  if((!(PINB & 0b0010000))&& (arm==0) &&(working==0))//Кнопка нажата
  
  {
-	  J1;
+	 J1;
 	 arm=1;
 	 _delay_ms(100);
-	 milis=0; 
-	
+	 mn_tm=milis; 
 	 J0;
  }
  if((arm==1)  &&  (PINB & 0b0010000)&&(working==0))// Кнопка отпущена , вентилятор запущен в ручном режиме
@@ -76,8 +71,6 @@ void ManualSet()
 	 
 	 RN1;
 	 arm=0;
-	 
-	 
 	 _delay_ms(20);
 	 
  }
@@ -86,9 +79,8 @@ void ManualSet()
  if((arm==0)  &&  (!(PINB & 0b0010000)) &&(working==1))//
  
  {
-	 
+	  J1;
 	 arm=1;
-	 J1;
 	 _delay_ms(150);
 	 J0;
  }
@@ -114,8 +106,7 @@ void ManualSet()
 		 lcd_puts("PyАЅo№ PEЈҐM    ");
 		 //lcd_puts("  MANUAL  SET   ");
 		 lcd_gotoxy(0,1);
-		 lcd_puts("SIGNAL LINES ERR");
-		 
+		 lcd_puts("SIGNAL LINES ERR"); 
 	 }
 	 RN0;
 	 _delay_ms(20);
@@ -125,35 +116,27 @@ void ManualSet()
  if((arm==0)&&(working==1))// Кнопка отпущена , вентилятор запущен в ручном режиме ВЫВОД ИНФОРМАЦИИ НА ДИСПЛЕЙ
  
  {
-	// mn_tm=(timing-millis)/7800;
-	// mcount=interval-mn_tm;
-	 
-      int mcount=interval-milis;
-	  if ( (preority==0)&&(technic==0)&&(interval > milis) )
-	 
-	// if ( (preority==0)&&(technic==0)&&(interval > mn_tm) )
-	 
+	
+       mcount=interval-(milis-mn_tm);
+	  if ((preority==0)&&(technic==0)&&(interval>(milis-mn_tm)))
 	 {
-		  regim_fall=0;
+		 regim_fall=0;
 		 lcd_gotoxy(0,0);
 		 lcd_puts("PyАЅo№ Ё©CK іeЅї"); //Ручной пуск вентилятора
 		 lcd_gotoxy(0,1);
 		 lcd_puts("ЎoїoіЅocїД...");
-		 
 		 lcd_gotoxy(13, 1);
-		  lcd_num_to_str(mcount, 3); // Выводим данные времени на LCD
-		// lcd_num_to_str(mcount/10, 2); // Выводим данные времени на LCD
-		// lcd_gotoxy(15, 1);
-		// lcd_num_to_str(mcount%100, 1);
+		 lcd_num_to_str(mcount, 3); // Выводим данные времени на LCD
 	 }
 	 
-	// if ( (preority==0)&&(technic==0)&&(interval<=mn_tm) )
-	 if ( (preority==0)&&(technic==0)&&(interval <= milis) )
+	 if ( (preority==0)&&(technic==0)&&(interval <=(milis-mn_tm)) )
 	 {
 		 lcd_gotoxy(0,1);
 		 lcd_puts("HeіГxoг Ѕa pe¶ёј"); //Невыход на режим 
 		 regim_fall=1;
 	 }
+	 
+	 
 	 if ((preority==0) && (technic==1))
 	 {
 		 lcd_gotoxy(0,1);

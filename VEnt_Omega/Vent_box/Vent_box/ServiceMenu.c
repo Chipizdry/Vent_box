@@ -713,16 +713,15 @@ void ServiceMenu () {
 	{	
 	  
 		 flag2=1;
-		start(); 
+		
 	}
 	
-	if ((!(PINB & 0b001000))&&(flag2==0))//кнопка выбора значения нажата
+	if ((!(PINB & 0b001000))&&(flag2==0))//кнопка ВЫБОР/РЕЖИМ  нажата
 	{
 		
 	  timer_M=timing;
 	  J1;
 	  RUN1;
-	  RN1;
 	  NORMAL1;
 	  C1;
 	  D1;
@@ -730,6 +729,7 @@ void ServiceMenu () {
 	  G1;
 	  H1;
 	  F1;
+	  soft_start=1;
 	  _delay_ms(1000);
 	  flag2=1;
 	}

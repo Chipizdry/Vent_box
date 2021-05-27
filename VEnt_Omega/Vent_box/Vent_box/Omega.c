@@ -262,20 +262,20 @@ if(soft_start==1)
 	*/
 	if(soft_start==1)
 	{
-		if(pwm_finish==0)
+		if(pwm_finish==0)  //флаг окончания разгона (разгон не окончен)
 
 		{
 			
-			blink=blink+1;
+			blink=blink+1;  //Таймер-счётчик общего времени разгона 
 			if(blink<47244){tk=blink/600;}
 
-			  peak=0;
+			  peak=0;   //АЦП значения перехода через ноль фазы 
 			  if(pwr_flag==0){peak=read_adc(6);}
 
 			  if((peak>=502)&&(peak<=522)&&(pwr_flag==0)&&((blink-blink_detect)>73))
 			  {
-				blink_detect=blink;
-				pwr_flag=1;
+				blink_detect=blink;  //значение отсрочки замера АЦП до следующего нуля 
+				pwr_flag=1;          //Флаг детекции перехода через нулевую отметку синусоиды 
 				run_status=0;
 				latch_1=0;
 				RN0;

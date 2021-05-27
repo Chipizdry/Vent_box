@@ -100,8 +100,8 @@ void Manual()
 	if((arm==1)&&(PINB & 0b0010000)&&(working==1) )//Кнопка отпущена , вентилятор отключен
 	
 	  {
-		 run_relay=0;
-		 RN0;
+		run_relay=0;
+		RN0;
 		working=0;
 		arm=0;
 		lcd_gotoxy(0, 0);
@@ -117,9 +117,8 @@ void Manual()
 	{	
 		if((pwm_finish==1)&&(run_relay==0)){soft_start=0;blink=0;run_relay=1;RN1;}//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		
-		if((preority==0)&&(external==0))
+		if(((preority==0)||(preority==1))&&(external==0))
 		{
-			
 			
 			if(soft_start==0){
 				lcd_gotoxy(0,0);
