@@ -108,7 +108,7 @@ void StatusBarTemp(void)
 	
 		lcd_gotoxy(0,1);
 		tt=0;
-		if(d==7){pr();}
+		if((d==7)&&(soft_start==0)){pr();} //устранение бросков датчика DHT
 		for(int m=d;m<7;m++)
 		{
 			
@@ -190,7 +190,7 @@ void StatusBarTemp(void)
 			 
 			 lcd_gotoxy(0,1);
 			 tt=0;
-			 if(d==7){pr();}
+			 if((d==7)&&(soft_start==0)){pr();} //устранение бросков датчика DHT
 			 for(int m=d;m<7;m++)
 			 {
 				 
