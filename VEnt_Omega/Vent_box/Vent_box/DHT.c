@@ -48,7 +48,6 @@ int read_dht_hum()   //функция чтения данных датчика
 			_delay_us (26);//30
 			if (DHT_PIN&(1<<DHT_BIT))
 			data[j]|=1<<(7-i);
-			
 			while ((DHT_PIN&(1<<DHT_BIT)));
 		}
 	}

@@ -150,7 +150,7 @@ void StatusBarTemp(void)
 					lcd_puts("AіapёЗ є»aѕaЅa  ");//Авария клапана
 					tt=1;
 					break;
-					
+
 				}
 				d=m;
 				break;

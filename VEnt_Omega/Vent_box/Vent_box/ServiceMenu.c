@@ -708,6 +708,24 @@ void ServiceMenu () {
 	{
 		lcd_gotoxy(0, 0); // Выводим строки на LCD
 		lcd_puts("-TEST-TEST-TEST-");//Контроль
+		lcd_gotoxy(0, 1);
+		lcd_num_to_str(stat[0], 1);
+		lcd_gotoxy(1, 1);
+		lcd_num_to_str(stat[1], 1);
+		lcd_gotoxy(2, 1);
+		lcd_num_to_str(stat[2], 1);
+		lcd_gotoxy(3, 1);
+		lcd_num_to_str(stat[3], 1);
+		lcd_gotoxy(4, 1);
+		lcd_num_to_str(stat[4], 1);
+		lcd_gotoxy(5, 1);
+		lcd_num_to_str(stat[5], 1);
+		lcd_gotoxy(6, 1);
+		lcd_num_to_str(stat[6], 1);
+		lcd_gotoxy(7, 1);
+		lcd_num_to_str(stat[7], 1);
+		lcd_gotoxy(8, 1);
+		lcd_num_to_str(stat[8], 1);
 		
 	if ((!(PINB & 0b010000))&&(flag2==0))//кнопка выбора значения нажата
 	{	

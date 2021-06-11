@@ -367,8 +367,8 @@ void status()
 	if(technic>2) {stat[9]=1;}   	//Ложная сработка датчика PS
 	else {stat[9]=0;}
 	
-	if(delta_F>40){stat[5]=0;} //игнор аварии фазировки
-	if(delta_U>40){stat[6]=0;} //игнор Реверса фаз
+	//if(delta_F>40){stat[5]=0;} //игнор аварии фазировки
+	//if(delta_U>40){stat[6]=0;} //игнор Реверса фаз
 	for(int i=1; i<10; i++)
 	{
 		al=al+stat[i];
