@@ -9,7 +9,7 @@
 
 void Alarm_line()
 {
-	//fire=read_adc(0); //Чтение состояния входа ПОЖАР
+	fire=read_adc(0); //Чтение состояния входа ПОЖАР
 	if ((590<=fire)&&(fire  <=700)&&(TypeAL==1))
 	{
 		preority=2;

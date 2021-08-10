@@ -312,12 +312,12 @@ void meter()
 		{
 			RUN0;
 		}
-		
+		/*
 		if((timing-past2)>7500)
 		{
 			RUN1;
 		}
-		
+		*/
 	}
 
 	else

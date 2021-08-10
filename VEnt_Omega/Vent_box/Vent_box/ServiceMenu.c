@@ -248,7 +248,7 @@ void ServiceMenu () {
 	{
 		lcd_gotoxy(0, 0); // Выводим строки на LCD
 		lcd_puts("Tёѕ гaїАёєa -AL");
-		fire=read_adc(2); //Чтение состояния входа датчик AL
+		fire=read_adc(0); //Чтение состояния входа датчик AL
 
 		lcd_gotoxy(13, 1);
 		lcd_num_to_str(fire/10, 2); // Выводим данные АЦП1 на LCD
