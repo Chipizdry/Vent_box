@@ -11,7 +11,7 @@
 #define DHT_PIN         PIND
 #define DHT_BIT         7
 
-#define VENT_SYSTEM     2 //2
+#define VENT_SYSTEM     1 //2
 
 #include <avr/io.h>
 #include <util/delay.h>

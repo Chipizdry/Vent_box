@@ -21,8 +21,8 @@ AutoTemp.d AutoTemp.o: .././AutoTemp.c .././Inputs.h .././main.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
  .././Registr.h .././ADConverter.h .././LCD.h .././registr.h \
  .././EepromDATA.h .././Voltmeter.h .././Led_driver.h .././Omega.h \
- .././DHT.h .././MenuStatus.h .././Manual.h .././AutoTemp.h \
- .././ServiceMenu.h .././AirCond.h
+ .././DHT.h .././MenuStatus.h .././ManualSet.h .././AutoSet.h \
+ .././Service.h
 
 .././Inputs.h:
 
@@ -88,10 +88,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 .././MenuStatus.h:
 
-.././Manual.h:
+.././ManualSet.h:
 
-.././AutoTemp.h:
+.././AutoSet.h:
 
-.././ServiceMenu.h:
-
-.././AirCond.h:
+.././Service.h:

@@ -22,7 +22,7 @@ Led_driver.d Led_driver.o: .././Led_driver.c .././Led_driver.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
  .././Registr.h .././LCD.h .././registr.h .././EepromDATA.h \
  .././Voltmeter.h .././Inputs.h .././Omega.h .././DHT.h .././MenuStatus.h \
- .././Manual.h .././AutoTemp.h .././ServiceMenu.h .././AirCond.h
+ .././ManualSet.h .././AutoSet.h .././Service.h
 
 .././Led_driver.h:
 
@@ -88,10 +88,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 .././MenuStatus.h:
 
-.././Manual.h:
+.././ManualSet.h:
 
-.././AutoTemp.h:
+.././AutoSet.h:
 
-.././ServiceMenu.h:
-
-.././AirCond.h:
+.././Service.h:
